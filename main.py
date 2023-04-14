@@ -2,17 +2,17 @@ import csv
 import os.path
 import datetime
 from collections import deque
-from typing import List, Dict, TextIO
+from typing import List, Dict, TextIO, Any
 
 import pyshark
 
-from process_app_log import Phase, get_phases_from_lines, is_formal_log, has_prefix, extract_timestamp, generate_moment, \
-    extract_stroke_id
-from process_pcap import get_ip
+from constants import DATETIME_FORMAT
+from process_app_log import Phase, is_formal_log, has_prefix, extract_timestamp, generate_moment, \
+    extract_stroke_id, Moment
+from process_pcap import get_ip, is_data_pkt, get_timestamp, is_ack_pkt
 
 OUTPUT_DIR = 'output'
 ROOT_PATH = os.path.abspath(os.path.dirname(__file__))
-DATETIME_FORMAT = '%Y-%m-%d %H:%M:%S.%f'
 
 
 def input_path(file_path: str) -> str:
@@ -96,7 +96,7 @@ def process_app_log_for_resolver(file: TextIO, stroke_id: str) -> List[Phase]:
             )
             if not len(filtered_moments):
                 raise Exception('no moments found for 2d')
-            moment_2d = filtered_moments[0]
+            moment_2d = filtered_moments[-1]  # last 2d for the same stroke id
             cur_phase.end_time = moment_2d.time
             cur_phase.end_raw_data = moment_2d.raw_data
 
@@ -116,7 +116,7 @@ def process_app_log_for_resolver(file: TextIO, stroke_id: str) -> List[Phase]:
 #     print("output file: {}".format(file_name))
 
 
-def process_pcap_trace(file_path: str, type: str, start_time: datetime, end_time: datetime) -> List[Phase]:
+def process_pcap_trace(file_path: str, type: str, start_time: datetime, end_time: datetime) -> Dict:
     with open(file_path, 'r') as f:
         if type == 'host':
             return process_pcap_trace_for_host(file_path, start_time, end_time)
@@ -125,7 +125,7 @@ def process_pcap_trace(file_path: str, type: str, start_time: datetime, end_time
         return []
 
 
-def process_pcap_trace_for_host(file_path: str, start_time: datetime, end_time: datetime) -> List[Phase]:
+def process_pcap_trace_for_host(file_path: str, start_time: datetime, end_time: datetime) -> Dict[str, Any]:
     # filter timestamp by e2e start and end, and filter out the data pkt & ack pkt
     # for the first data pkt, the source is phone, the destination is cloud
     # collect the data pkt and its ack as a pair
@@ -138,21 +138,41 @@ def process_pcap_trace_for_host(file_path: str, start_time: datetime, end_time: 
     pyshark_filters.append('frame.time >= "{st}"'.format(st=start_time.strftime(DATETIME_FORMAT)))
     pyshark_filters.append('frame.time <= "{et}"'.format(et=end_time.strftime(DATETIME_FORMAT)))
     pyshark_filters.append('tcp')
-    cap_e2e = pyshark.FileCapture(file_path, display_filter='&&'.join(pyshark_filters))
+    cap_e2e = pyshark.FileCapture(file_path, display_filter=' && '.join(pyshark_filters))
     ip_set = set()
     phone_ip = None
-    cloud_ip = None
+    database_ip = None
     for pkt in cap_e2e:
         ip_set.add(get_ip(pkt, type='src'))
         ip_set.add(get_ip(pkt, type='dst'))
 
-        # assume the first is data pkt from phone and the second is ack pkt from cloud
-        if phone_ip is None:
+        # assume the first is data pkt from phone to database
+        if phone_ip is None and is_data_pkt(pkt):
             phone_ip = get_ip(pkt, type='src')
-        elif phone_ip is not None and cloud_ip is None:
-            cloud_ip = get_ip(pkt, type='src')
-        pass
-    return []
+            database_ip = get_ip(pkt, type='dst')
+
+    cap_e2e.close()
+
+    cap = pyshark.FileCapture(file_path, display_filter=' && '.join(pyshark_filters))
+    moments = []
+    for pkt in cap:
+        if is_data_pkt(pkt, min_size=100, src=phone_ip, dst=database_ip):
+            moment_1b_start = Moment(name='1b_start', time=get_timestamp(pkt), raw_data=pkt)
+            moments.append(moment_1b_start)
+        elif is_ack_pkt(pkt, src=database_ip, dst=phone_ip):
+            moment_1b_end = Moment(name='1b_end', time=get_timestamp(pkt), raw_data=pkt)
+            moments.append(moment_1b_end)
+        elif is_data_pkt(pkt, min_size=100, src=database_ip, dst=phone_ip):
+            moment_1c_end = Moment(name='1c_end', time=get_timestamp(pkt), raw_data=pkt)
+            moments.append(moment_1c_end)
+
+    cap.close()
+    return {
+        'phone_ip': phone_ip,
+        'database_ip': database_ip,
+        'ip_set': ip_set,
+        'moments': moments,
+    }
 
 
 def process_pcap_trace_for_resolver(file_path: str) -> List[Phase]:
@@ -171,16 +191,29 @@ def merge_timeline(host_app_log, resolver_app_log, host_pcap, resolver_pcap):
     t1 = phase_1a.start_time
     t7 = phase_2d.end_time
 
-    host_pcap = process_pcap_trace(
+    host_pcap_info = process_pcap_trace(
         input_path(host_pcap),
         type='host',
         start_time=t1,
         end_time=t7
     )
-    # resolver_pcap = process_app_log(input_path(resolver_pcap), ["1a start", "2a end - 2d start", "2d"])
+    phone_ip = host_pcap_info['phone_ip']
+    database_ip = host_pcap_info['database_ip']
+    ip_set = host_pcap_info['ip_set']
 
-    t3 = datetime.datetime()
-    t4 = datetime.datetime()
+    t2 = None
+    t3 = None
+    t4 = None
+    for moment in host_pcap_info['moments']:
+        if t2 is None and moment.name == '1b_start':
+            t2 = moment.time
+        elif t3 is None and moment.name == '1b_end':
+            t3 = moment.time
+        elif t4 is None and moment.name == '1c_end':
+            t4 = moment.time
+
+    resolver_pcap = process_app_log(input_path(resolver_pcap), ["1a start", "2a end - 2d start", "2d"])
+
     t5 = datetime.datetime()
     t6 = datetime.datetime()
     t7 = resolver_app_phases[-1].time

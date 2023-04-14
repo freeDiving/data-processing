@@ -1,7 +1,7 @@
 import re
 import unittest
 from datetime import datetime
-from typing import Union, List
+from typing import Union, List, Any
 
 
 def extract_timestamp(line: str) -> Union[str, None]:
@@ -65,9 +65,14 @@ class Phase:
 
 
 class Moment:
+    name: str
+    time: datetime
+    raw_data: Any
+
     def __init__(self, **kwargs):
+        self.name = kwargs.get("name") or ""
         self.time = kwargs.get("time") or ""
-        self.raw_data = kwargs.get("raw_data") or ""
+        self.raw_data = kwargs.get("raw_data") or None
 
 
 def get_phase_instance(line: str, phases: List[str]) -> Union[Phase, None]:
