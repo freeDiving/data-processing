@@ -24,6 +24,13 @@ def get_ip(pkt, type: str):
     return None
 
 
+def filter_ip(ip: str, type: str):
+    if ':' in ip:
+        return 'ipv6.{type} == {ip}'.format(type=type, ip=ip)
+    else:
+        return 'ip.{type} == {ip}'.format(type=type, ip=ip)
+
+
 def is_data_pkt(pkt, min_size=0, src=None, dst=None):
     data_pkt_flag = False
     if 'tls' in pkt:

@@ -3,3 +3,4 @@ venv
 output/
 *.zip
 .idea/
+output.csv
