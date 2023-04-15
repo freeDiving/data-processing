@@ -8,7 +8,7 @@ from typing import List, Dict, TextIO, Any
 
 import pyshark
 
-from constants import DATETIME_FORMAT
+from constants import DATETIME_FORMAT, YEAR
 from process_app_log import Phase, is_formal_log, has_prefix, extract_timestamp, generate_moment, \
     extract_stroke_id, Moment
 from process_pcap import get_ip, is_data_pkt, get_timestamp, is_ack_pkt, filter_ip
@@ -35,13 +35,23 @@ def process_app_with_firebase_log(file_path: str, type: str, metadata: Dict = No
         return []
 
 
-def process_app_with_firebase_log_for_host(file: TextIO) -> List[Phase]:
-    phase_1a = Phase(phase='1a', desc='touch screen to first data pkt sent')
-    task_queue = deque([phase_1a])
-    res_phases = [phase_1a]
+def is_app_log(line: str):
+    return re.match(r'^\d{2}-\d{2}\s', line)
+
+
+def process_app_with_firebase_log_for_host(file: TextIO) -> List[Moment]:
+    # the first 1a
+    moment_1a_start = Moment(name='1a_start')
+    task_queue = deque([moment_1a_start])
+    res_phases = []
     lines = file.readlines()
-    lines = filter(is_formal_log, lines)
-    moments = list(map(generate_moment, lines))
+    lines = filter(lambda x:
+                   is_app_log(x) and
+                   not has_prefix(x, r'\[\[2d end\]') and
+                   not has_prefix(x, r'\[Update ARCore frame') and
+                   not has_prefix(x, r'\[TRACKING')
+                   , lines)
+    moments = list(map(lambda x: generate_moment(x, year=YEAR), lines))
     while task_queue:
         cur_phase = task_queue[0]
         if cur_phase.phase == '1a':
@@ -367,9 +377,22 @@ def output_separate_csv():
         output_csv([*phase_data, *misc_data], get_run_file(date, 'host', run_name, 'phase.csv'))
 
 
+def prepare_data(host_app_log, resolver_app_log, host_pcap, resolver_pcap):
+    host_app_phases = process_app_with_firebase_log(host_app_log, type='host')
+
+
 def output_combined_csv():
-    pass
+    host_path = './0407/host/0407-run10'
+    resolver_path = './0407/resolver/0407-run10'
+    app_log = 'static_log.logcat'
+    pcap = 'capture.pcap'
+    prepare_data(
+        host_app_log=input_path(host_path, app_log),
+        host_pcap=input_path(host_path, pcap),
+        resolver_app_log=input_path(resolver_path, app_log),
+        resolver_pcap=input_path(resolver_path, pcap)
+    )
 
 
 if __name__ == '__main__':
-    output_separate_csv()
+    output_combined_csv()

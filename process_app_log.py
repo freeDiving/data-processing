@@ -4,12 +4,13 @@ from datetime import datetime
 from typing import Union, List, Any
 
 
-def extract_timestamp(line: str) -> Union[str, None]:
-    pattern = r".*(\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}\.\d{3})"
+def extract_timestamp(line: str, year: str) -> Union[str, None]:
+    pattern = r".*?(\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}\.\d{3})"
     match = re.match(pattern, line)
     if not match:
         return None
-    return match.group(1)
+    app_log_time = match.group(1)
+    return year + '-' + app_log_time
 
 
 def extract_stroke_id(line: str) -> Union[str, None]:
@@ -102,17 +103,17 @@ def get_phases_from_lines(lines: List[str], type: str):
     return res
 
 
-def generate_moment(formal_log: str) -> Moment:
+def generate_moment(formal_log: str, year: str) -> Moment:
     moment = Moment()
-    moment.time = datetime.strptime(extract_timestamp(formal_log), '%Y-%m-%d %H:%M:%S.%f')
+    moment.time = datetime.strptime(extract_timestamp(formal_log, year=year), '%Y-%m-%d %H:%M:%S.%f')
     moment.raw_data = formal_log
     return moment
 
 
 class ProcessAppLogUnitTest(unittest.TestCase):
     def test_extract_timestamp(self):
-        line = '04-07 15:15:13.915  6297  6444 D ar_activity: [Update ARCore frame time=2023-04-07 15:15:13.868]'
-        self.assertEqual('2023-04-07 15:15:13.868', extract_timestamp(line))
+        line = '04-07 15:34:34.421 10456 10592 D ar_activity: [Update ARCore frame time=2023-04-07 15:34:34.421]'
+        self.assertEqual('2023-04-07 15:34:34.421', extract_timestamp(line, year='2023'))
 
     def test_identify_phases(self):
         line = '04-07 15:16:47.171  6297  6297 D ar_activity: [[1a start] touch screen time=2023-04-07 15:16:47.171]'
@@ -151,4 +152,7 @@ class ProcessAppLogUnitTest(unittest.TestCase):
         self.assertEqual(False, has_prefix(line, r'\[\[1a start\]'))
 
         line = '04-07 15:16:47.408 11056 11213 D ar_activity: [[2d] after update lines time=2023-04-07 15:16:47.407]'
-        self.assertEqual(True, has_prefix(line, r'\[\[2d\] after update lines'))
+        self.assertEqual(True, has_prefix(line, r'\[\[2d\]'))
+
+        line = '04-07 15:34:36.196 10456 10592 D ar_activity: [[2d end] stroke time=2023-04-07 15:34:36.196]'
+        self.assertEqual(True, has_prefix(line, r'\[\[2d end\]'))
