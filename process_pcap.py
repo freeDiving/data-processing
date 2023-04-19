@@ -60,11 +60,11 @@ def get_timestamp(pkt):
     return pkt.sniff_time
 
 
-# def display_filter_for_ip(ip):
-#     if ':' in ip:
-#         return 'ipv6.src == {ip}'.format(ip=ip)
-#     else:
-#         return 'ip.src == {ip}'.format(ip=ip)
+def display_filter_for_ip(ip, type='src'):
+    if ':' in ip:
+        return 'ipv6.{type} == {ip}'.format(ip=ip, type=type)
+    else:
+        return 'ip.{type} == {ip}'.format(ip=ip, type=type)
 
 
 # def extract_cloud_ips(pcap_file, phone_ip):

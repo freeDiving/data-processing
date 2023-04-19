@@ -1,0 +1,2765 @@
+host->host: user touches screen
+host->host: add a stroke
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: notified by finish of cloud processing
+resolver->resolver: finish rendering
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->cloud: send data pkt to cloud
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+resolver->resolver: finish rendering
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+host->host: notified by finish of cloud processing
+resolver->resolver: finish rendering
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+cloud-->host: receive data pkt from cloud
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: notified by finish of cloud processing
+resolver->resolver: finish rendering
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+resolver->resolver: finish rendering
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+resolver->resolver: finish rendering
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->cloud: send data pkt to cloud
+host->host: notified by finish of cloud processing
+resolver->resolver: receive point updates
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: notified by finish of cloud processing
+resolver->resolver: finish rendering
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+resolver->resolver: finish rendering
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+host->cloud: send data pkt to cloud
+host->host: notified by finish of cloud processing
+resolver->resolver: finish rendering
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+host->cloud: send data pkt to cloud
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+resolver->resolver: finish rendering
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: notified by finish of cloud processing
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->cloud: send data pkt to cloud
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+host->host: add points to stroke
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: notified by finish of cloud processing
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+resolver->resolver: finish rendering
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+resolver->resolver: finish rendering
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+resolver->resolver: finish rendering
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+resolver->resolver: receive point updates
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+resolver->resolver: finish rendering
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: notified by finish of cloud processing
+resolver->resolver: finish rendering
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+host->cloud: send data pkt to cloud
+resolver->cloud: send ack pkt to cloud
+host->host: notified by finish of cloud processing
+resolver->resolver: receive point updates
+host->host: add points to stroke
+resolver->resolver: finish rendering
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+cloud-->host: receive data pkt from cloud
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+resolver->resolver: finish rendering
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->cloud: send data pkt to cloud
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+resolver->resolver: finish rendering
+cloud-->host: receive data pkt from cloud
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->cloud: send data pkt to cloud
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+resolver->resolver: finish rendering
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->host: receive ack pkt from cloud
+cloud-->host: receive ack pkt from cloud
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+resolver->cloud: send ack pkt to cloud
+resolver->cloud: send ack pkt to cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive ack pkt from cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+host->host: notified by finish of cloud processing
+resolver->resolver: finish rendering
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+resolver->resolver: finish rendering
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: finish rendering
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+resolver->resolver: finish rendering
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+resolver->resolver: finish rendering
+cloud-->host: receive data pkt from cloud
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+host->host: notified by finish of cloud processing
+resolver->resolver: finish rendering
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+resolver->cloud: send ack pkt to cloud
+resolver->cloud: send ack pkt to cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+cloud-->host: receive ack pkt from cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+resolver->resolver: finish rendering
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+cloud-->host: receive ack pkt from cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+host->host: notified by finish of cloud processing
+resolver->resolver: receive point updates
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+host->host: notified by finish of cloud processing
+resolver->resolver: finish rendering
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+resolver->resolver: finish rendering
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+resolver->resolver: finish rendering
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+cloud-->host: receive data pkt from cloud
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->cloud: send data pkt to cloud
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->cloud: send data pkt to cloud
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+host->host: notified by finish of cloud processing
+resolver->resolver: finish rendering
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+resolver->resolver: finish rendering
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+resolver->resolver: finish rendering
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->cloud: send data pkt to cloud
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+host->host: add points to stroke
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+host->host: notified by finish of cloud processing
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+cloud-->host: receive data pkt from cloud
+resolver->resolver: receive point updates
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+host->host: add points to stroke
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+resolver->resolver: finish rendering
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+host->host: add points to stroke
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+host->host: add points to stroke
+cloud-->host: receive ack pkt from cloud
+host->host: add points to stroke
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+cloud-->host: receive data pkt from cloud
+host->host: add points to stroke
+resolver->resolver: finish rendering
+host->host: notified by finish of cloud processing
+host->cloud: send data pkt to cloud
+cloud-->host: receive ack pkt from cloud
+cloud-->resolver: receive data pkt from cloud
+resolver->cloud: send ack pkt to cloud
+resolver->resolver: receive point updates
+resolver->resolver: finish rendering
