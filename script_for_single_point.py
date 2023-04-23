@@ -309,7 +309,7 @@ def output_separate_csv():
             'ip_set': ip_set,
         }
 
-    date = '0412-wifi-400mb'
+    date = 'wifi-static-point'
     host_dirs = glob.glob(input_path('./{date}/host/*'.format(date=date)))
     for host_path in host_dirs:
         # if re.match(r".*[0-9]{2}$", host_path):

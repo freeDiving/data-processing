@@ -3,9 +3,11 @@ import glob
 import json
 import os.path
 import re
+from collections import deque
 from typing import List, Dict
 import pyshark
 
+from calculate_phases import Phase
 from constants import DATETIME_FORMAT, YEAR
 from process_app_log import has_prefix, extract_timestamp, extract_stroke_id, Moment
 from process_pcap import get_ip, is_data_pkt, get_timestamp, is_ack_pkt, filter_ip, display_filter_for_ip
@@ -27,6 +29,8 @@ def is_app_log(line: str):
 
 
 def diff_sec(t1, t2):
+    if t1 is None or t2 is None:
+        return 'NaN'
     return f'{(t2 - t1).total_seconds() * 1000: .0f}'
 
 
@@ -45,7 +49,7 @@ def output_csv(rows: List, output_file: str):
 
 #
 # def output_separate_csv():
-#     date = '0412-wifi-400mb'
+#     date = 'wifi-static-point'
 #     host_dirs = glob.glob(input_path('./{date}/host/*'.format(date=date)))
 #     for host_path in host_dirs:
 #         # if re.match(r".*[0-9]{2}$", host_path):
@@ -402,16 +406,72 @@ def output_sequences(timeline: List[Moment], output_path: str):
     print('output sequences to {}'.format(output_path))
 
 
+def output_phases(timeline: List[Moment], output_path: str):
+    phases = []
+    queue = deque()
+    found_start = False
+    for moment in timeline:
+        if not found_start:
+            if moment.name != 'user touches screen':
+                continue
+            found_start = True
+
+        q_size = len(queue)
+        is_handled = False
+        while q_size > 0:
+            phase = queue.popleft()
+            q_size -= 1
+            event = '{}: {}'.format(moment.source, moment.name)
+            if phase.is_next_valid_event(event):
+                phase.transit(event, moment.time)
+                if not phase.is_finished():
+                    queue.append(phase)
+                else:
+                    phases.append(phase.output())
+                is_handled = True
+                break
+            queue.append(phase)
+        if not is_handled:
+            if moment.name == 'user touches screen' or moment.name == 'add points to stroke':
+                phase = Phase(moment.time)
+                queue.append(phase)
+
+    with open(output_path, 'w') as f:
+        f.write('phase,state,duration,start_time,end_time\n')
+        for index, phase in enumerate(phases):
+            for state in phase:
+                f.write('{phase},{state},{duration},{start_time},{end_time}\n'.format(
+                    phase='phase {}'.format(index + 1),
+                    state=state,
+                    duration=diff_sec(phase[state]['start'], phase[state]['end']),
+                    start_time=phase[state]['start'],
+                    end_time=phase[state]['end'],
+                ))
+                if state == 'resolver: rendering':
+                    e2e_start_time = phase['host: local action']['start']
+                    e2e_end_time = phase['resolver: rendering']['end']
+                    f.write('{phase},{state},{duration},{start_time},{end_time}\n'.format(
+                        phase='phase {}'.format(index + 1) + ' (e2e)',
+                        state='e2e',
+                        duration=diff_sec(e2e_start_time, e2e_end_time),
+                        start_time=e2e_start_time,
+                        end_time=e2e_end_time,
+                    ))
+
+    print('output phases to {}'.format(output_path))
+
+
 if __name__ == '__main__':
-    date = '0407'
-    host_dirs = glob.glob(input_path('./{date}/host/*'.format(date=date)))
+    host_dirs = glob.glob(input_path('./datasets/*/host/*'))
 
     for host_path in host_dirs:
         resolver_path = host_path.replace('host', 'resolver')
         run_name = host_path.split('/')[-1]
         app_log = 'static_log.logcat'
         pcap = 'capture.pcap'
-
+        output_path = '/'.join(host_path.split('/')[:-2]) + '/output'
+        if not os.path.exists(output_path):
+            os.mkdir(output_path)
         try:
             timeline = prepare_timeline(
                 host_app_log=input_path(host_path, app_log),
@@ -419,8 +479,9 @@ if __name__ == '__main__':
                 resolver_app_log=input_path(resolver_path, app_log),
                 resolver_pcap=input_path(resolver_path, pcap)
             )
-            output_timeline(timeline, './{date}/{run}_timeline.csv'.format(date=date, run=run_name))
-            output_sequences(timeline, './{date}/{run}_sequences.txt'.format(date=date, run=run_name))
+            output_timeline(timeline, '{prefix}/{run}_timeline.csv'.format(prefix=output_path, run=run_name))
+            output_phases(timeline, '{prefix}/{run}_phases.csv'.format(prefix=output_path, run=run_name))
+            # output_sequences(timeline, './{date}/{run}_sequences.txt'.format(date=date, run=run_name))
         except Exception as e:
             print('run {run_name} failed'.format(run_name=run_name))
             print(e)

@@ -4,3 +4,4 @@ output/
 *.zip
 .idea/
 output.csv
+datasets/
