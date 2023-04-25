@@ -47,66 +47,6 @@ def output_csv(rows: List, output_file: str):
     return
 
 
-#
-# def output_separate_csv():
-#     date = 'wifi-static-point'
-#     host_dirs = glob.glob(input_path('./{date}/host/*'.format(date=date)))
-#     for host_path in host_dirs:
-#         # if re.match(r".*[0-9]{2}$", host_path):
-#         #     continue
-#         resolver_path = host_path.replace('host', 'resolver')
-#         run_name = host_path.split('/')[-1]
-#         app_log = 'static_log.logcat'
-#         pcap = 'capture.pcap'
-#
-#         try:
-#             data = prepare_data(
-#                 host_app_log=input_path(host_path, app_log),
-#                 host_pcap=input_path(host_path, pcap),
-#                 resolver_app_log=input_path(resolver_path, app_log),
-#                 resolver_pcap=input_path(resolver_path, pcap)
-#             )
-#         except Exception as e:
-#             print('run {run_name} failed'.format(run_name=run_name))
-#             print(e)
-#             continue
-#
-#         t1 = data.get('t1')
-#         t2 = data.get('t2')
-#         t3 = data.get('t3')
-#         t4 = data.get('t4')
-#         t5 = data.get('t5')
-#         t6 = data.get('t6')
-#         t7 = data.get('t7')
-#         phone_ip = data.get('phone_ip')
-#         database_ip = data.get('database_ip')
-#         ip_set = data.get('ip_set')
-#
-#         phase_data = [
-#             ['phase', 'duration (ms)', 'start', 'end', 'description'],
-#             ['1a', diff_sec(t1, t2), t1, t2, 'from [touch screen] to [first data pkt sent by host to cloud]'],
-#             ['1b', diff_sec(t2, t3), t2, t3,
-#              'from [last ack received from cloud] to [first data pkt sent by host to cloud]'],
-#             ['1c', diff_sec(t3, t4), t3, t4,
-#              'from [first data pkt received from cloud] to [last ack received from cloud]'],
-#             ['2x', diff_sec(t4, t5), t4, t5, 'description'],
-#             ['2a', diff_sec(t5, t6), t5, t6,
-#              'from [first data pkt received from cloud] to [last data pkt received from cloud]'],
-#             ['2d', diff_sec(t6, t7), t6, t7, 'from [last data pkt received from cloud] to [resolver renders data]'],
-#             ['e2e', diff_sec(t1, t7), t1, t7, 'from [touch screen] to [resolver renders data]'],
-#         ]
-#
-#         misc_data = [
-#             [],
-#             ['ip_name', 'ip_addr'],
-#             ['phone_ip', phone_ip],
-#             ['database_ip', database_ip],
-#             *list(map(lambda x: ['unknown', x], filter(lambda y: y != phone_ip and y != database_ip, ip_set))),
-#         ]
-#
-#         output_csv([*phase_data, *misc_data], get_run_file(date, 'host', run_name, 'phase.csv'))
-
-
 def prepare_host_app_moments(host_app_log):
     touch_start_regexp = lambda x: has_prefix(x, prefix=r'\[\[1a start\] touch screen')
     stroke_was_added_regexp = lambda x: has_prefix(x, prefix=r'stroke \(id: .*?\) was added at')
@@ -272,7 +212,7 @@ def prepare_resolver_app_moments(resolver_app_log):
                     action_to='resolver',
                 ))
                 continue
-    # for each receive point moment, find the nearest finish rendering moment
+    # for each receive point moment, find the nearest moment of finishing the rendering
     recv_point_moment_that_waits_for_finish_moment = None
     res = []
     for moment in moments:
@@ -410,27 +350,26 @@ def output_phases(timeline: List[Moment], output_path: str):
     phases = []
     queue = deque()
     found_start = False
+    user_touch_events_stack = []
+
     for moment in timeline:
         if not found_start:
-            if moment.name != 'user touches screen':
-                continue
-            found_start = True
+            if not user_touch_events_stack and moment.name == 'user touches screen':
+                user_touch_events_stack.append(moment)
+            if user_touch_events_stack and moment.name == 'add a stroke':
+                found_start = True
+            continue
 
-        q_size = len(queue)
         is_handled = False
-        while q_size > 0:
-            phase = queue.popleft()
-            q_size -= 1
-            event = '{}: {}'.format(moment.source, moment.name)
+        event = '{}: {}'.format(moment.source, moment.name)
+        for phase in queue:
             if phase.is_next_valid_event(event):
                 phase.transit(event, moment.time)
-                if not phase.is_finished():
-                    queue.append(phase)
-                else:
+                if phase.is_finished():
                     phases.append(phase.output())
+                    queue.popleft()
                 is_handled = True
                 break
-            queue.append(phase)
         if not is_handled:
             if moment.name == 'user touches screen' or moment.name == 'add points to stroke':
                 phase = Phase(moment.time)
@@ -463,6 +402,10 @@ def output_phases(timeline: List[Moment], output_path: str):
 
 if __name__ == '__main__':
     host_dirs = glob.glob(input_path('./datasets/*/host/*'))
+    # host_dirs = glob.glob(input_path('datasets/wifi-static-line/host/*'))
+    # host_dirs = [
+    #     input_path('./datasets/5g-static-line/host/0407-run10')
+    # ]
 
     for host_path in host_dirs:
         resolver_path = host_path.replace('host', 'resolver')
@@ -481,7 +424,7 @@ if __name__ == '__main__':
             )
             output_timeline(timeline, '{prefix}/{run}_timeline.csv'.format(prefix=output_path, run=run_name))
             output_phases(timeline, '{prefix}/{run}_phases.csv'.format(prefix=output_path, run=run_name))
-            # output_sequences(timeline, './{date}/{run}_sequences.txt'.format(date=date, run=run_name))
+            # output_sequences(timeline, '{prefix}/{run}_sequences.txt'.format(prefix=output_path, run=run_name))
         except Exception as e:
             print('run {run_name} failed'.format(run_name=run_name))
             print(e)

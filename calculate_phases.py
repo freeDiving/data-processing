@@ -53,7 +53,7 @@ class Phase:
                     'host: receive ack pkt from cloud': 2,
                 },
                 2: {
-                    'host: receive data pkt from cloud': 3,
+                    'resolver: receive data pkt from cloud': 3,
                 },
                 3: {
                     'resolver: finish rendering': 4,
