@@ -1,0 +1,403 @@
+--------- beginning of main
+04-12 18:42:51.742 10954 11101 D ar_activity: [[2d] after update lines time=2023-04-12 18:42:51.703]
+04-12 18:42:54.766 10954 10954 D ar_activity: [--- pair start --- time=2023-04-12 18:42:54.766]
+04-12 18:42:54.766 10954 10954 D ar_activity: [--- pair session start --- time=2023-04-12 18:42:54.766]
+04-12 18:42:54.793 10954 10954 D ar_activity: [create room: Message{namespace='', type='', content=[34 bytes]} time=2023-04-12 18:42:54.793]
+04-12 18:42:54.809 10954 10954 D ar_activity: LOOKING: 2023-04-12 18:42:54.808
+04-12 18:43:01.601 10954 10954 D ar_activity: [--- pair joined --- time=2023-04-12 18:43:01.601]
+04-12 18:43:01.617 10954 10954 D ar_activity: PARTNER FOUND: 2023-04-12 18:43:01.616
+04-12 18:43:03.623 10954 10954 D ar_activity: SET ANCHOR: 2023-04-12 18:43:03.623
+04-12 18:43:04.526 10954 10954 D ar_activity: [anchor resolution changed: null time=2023-04-12 18:43:04.526]
+04-12 18:43:06.435 10954 10954 D ar_activity: [--- sync ready to set anchor --- time=2023-04-12 18:43:06.434]
+04-12 18:43:06.435 10954 10954 D ar_activity: [--- sync: sendSetAnchorEvent --- time=2023-04-12 18:43:06.435]
+04-12 18:43:06.436 10954 10954 D ar_activity: --- start creating anchor: 2023-04-12 18:43:06.436 ---
+04-12 18:43:06.437 10954 10954 D ar_activity: --- anchor: com.google.ar.core.Anchor@30b146e8 ---
+04-12 18:43:06.437 10954 10954 D ar_activity: --- finish creating anchor: 2023-04-12 18:43:06.437 ---
+04-12 18:43:06.438 10954 10954 D ar_activity: [hostAnchor start time=2023-04-12 18:43:06.438]
+04-12 18:43:06.438 10954 10954 D ar_activity: [hostAnchor end time=2023-04-12 18:43:06.438]
+04-12 18:43:06.439 10954 10954 D ar_activity: Start CONNECTING: 2023-04-12 18:43:06.439
+04-12 18:43:06.445 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:43:06.445]
+04-12 18:43:09.212 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:43:09.212]
+04-12 18:43:09.213 10954 11101 D ar_activity: [--- onAnchorHosted [NOT HOSTED]--- time=2023-04-12 18:43:09.212]
+04-12 18:43:09.231 10954 10954 D ar_activity: [anchor resolution changed: true time=2023-04-12 18:43:09.230]
+04-12 18:43:09.241 10954 10954 D ar_activity: [onAnchorResolutionError: null time=2023-04-12 18:43:09.241]
+04-12 18:43:10.364 10954 10954 D ar_activity: SET ANCHOR: 2023-04-12 18:43:10.363
+04-12 18:43:11.036 10954 10954 D ar_activity: [anchor resolution changed: null time=2023-04-12 18:43:11.036]
+04-12 18:43:14.167 10954 10954 D ar_activity: [--- sync ready to set anchor --- time=2023-04-12 18:43:14.167]
+04-12 18:43:14.168 10954 10954 D ar_activity: [--- sync: sendSetAnchorEvent --- time=2023-04-12 18:43:14.167]
+04-12 18:43:14.170 10954 10954 D ar_activity: --- start creating anchor: 2023-04-12 18:43:14.170 ---
+04-12 18:43:14.170 10954 10954 D ar_activity: --- anchor: com.google.ar.core.Anchor@30b162e8 ---
+04-12 18:43:14.171 10954 10954 D ar_activity: --- finish creating anchor: 2023-04-12 18:43:14.170 ---
+04-12 18:43:14.171 10954 10954 D ar_activity: [hostAnchor start time=2023-04-12 18:43:14.171]
+04-12 18:43:14.171 10954 10954 D ar_activity: [hostAnchor end time=2023-04-12 18:43:14.171]
+04-12 18:43:14.171 10954 10954 D ar_activity: Start CONNECTING: 2023-04-12 18:43:14.171
+04-12 18:43:14.200 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:43:14.200]
+04-12 18:43:16.577 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:43:16.577]
+04-12 18:43:16.578 10954 11101 D ar_activity: [--- onAnchorHosted [NOT HOSTED]--- time=2023-04-12 18:43:16.577]
+04-12 18:43:16.590 10954 10954 D ar_activity: [anchor resolution changed: true time=2023-04-12 18:43:16.589]
+04-12 18:43:16.593 10954 10954 D ar_activity: [onAnchorResolutionError: null time=2023-04-12 18:43:16.593]
+04-12 18:43:17.816 10954 10954 D ar_activity: SET ANCHOR: 2023-04-12 18:43:17.816
+04-12 18:43:18.422 10954 10954 D ar_activity: [anchor resolution changed: null time=2023-04-12 18:43:18.421]
+04-12 18:43:19.117 10954 10954 D ar_activity: [--- sync ready to set anchor --- time=2023-04-12 18:43:19.115]
+04-12 18:43:19.119 10954 10954 D ar_activity: [--- sync: sendSetAnchorEvent --- time=2023-04-12 18:43:19.117]
+04-12 18:43:19.119 10954 10954 D ar_activity: --- start creating anchor: 2023-04-12 18:43:19.119 ---
+04-12 18:43:19.120 10954 10954 D ar_activity: --- anchor: com.google.ar.core.Anchor@30b15ac8 ---
+04-12 18:43:19.120 10954 10954 D ar_activity: --- finish creating anchor: 2023-04-12 18:43:19.120 ---
+04-12 18:43:19.120 10954 10954 D ar_activity: [hostAnchor start time=2023-04-12 18:43:19.120]
+04-12 18:43:19.120 10954 10954 D ar_activity: [hostAnchor end time=2023-04-12 18:43:19.120]
+04-12 18:43:19.121 10954 10954 D ar_activity: Start CONNECTING: 2023-04-12 18:43:19.121
+04-12 18:43:19.131 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:43:19.130]
+04-12 18:43:21.691 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:43:21.690]
+04-12 18:43:21.692 10954 11101 D ar_activity: [--- onAnchorHosted [NOT HOSTED]--- time=2023-04-12 18:43:21.691]
+04-12 18:43:21.699 10954 10954 D ar_activity: [anchor resolution changed: true time=2023-04-12 18:43:21.696]
+04-12 18:43:21.711 10954 10954 D ar_activity: [onAnchorResolutionError: null time=2023-04-12 18:43:21.711]
+04-12 18:43:24.073 10954 10954 D ar_activity: SET ANCHOR: 2023-04-12 18:43:24.073
+04-12 18:43:24.092 10954 10954 D ar_activity: [--- sync ready to set anchor --- time=2023-04-12 18:43:24.092]
+04-12 18:43:24.093 10954 10954 D ar_activity: [anchor resolution changed: null time=2023-04-12 18:43:24.093]
+04-12 18:43:24.630 10954 10954 D ar_activity: [--- sync: sendSetAnchorEvent --- time=2023-04-12 18:43:24.630]
+04-12 18:43:24.630 10954 10954 D ar_activity: --- start creating anchor: 2023-04-12 18:43:24.630 ---
+04-12 18:43:24.631 10954 10954 D ar_activity: --- anchor: com.google.ar.core.Anchor@30b123e8 ---
+04-12 18:43:24.631 10954 10954 D ar_activity: --- finish creating anchor: 2023-04-12 18:43:24.631 ---
+04-12 18:43:24.631 10954 10954 D ar_activity: [hostAnchor start time=2023-04-12 18:43:24.631]
+04-12 18:43:24.631 10954 10954 D ar_activity: [hostAnchor end time=2023-04-12 18:43:24.631]
+04-12 18:43:24.632 10954 10954 D ar_activity: Start CONNECTING: 2023-04-12 18:43:24.632
+04-12 18:43:24.643 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:43:24.643]
+04-12 18:43:24.659 10954 10954 D ar_activity: [anchor resolution changed: null time=2023-04-12 18:43:24.658]
+04-12 18:43:26.958 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:43:26.957]
+04-12 18:43:26.958 10954 11101 D ar_activity: [--- onAnchorHosted [NOT HOSTED]--- time=2023-04-12 18:43:26.958]
+04-12 18:43:26.970 10954 10954 D ar_activity: [anchor resolution changed: true time=2023-04-12 18:43:26.970]
+04-12 18:43:26.976 10954 10954 D ar_activity: [onAnchorResolutionError: null time=2023-04-12 18:43:26.976]
+04-12 18:43:29.358 10954 10954 D ar_activity: [--- sync ready to set anchor --- time=2023-04-12 18:43:29.358]
+04-12 18:43:29.362 10954 10954 D ar_activity: [anchor resolution changed: null time=2023-04-12 18:43:29.361]
+04-12 18:43:29.774 10954 10954 D ar_activity: SET ANCHOR: 2023-04-12 18:43:29.774
+04-12 18:43:30.310 10954 10954 D ar_activity: [--- sync: sendSetAnchorEvent --- time=2023-04-12 18:43:30.309]
+04-12 18:43:30.312 10954 10954 D ar_activity: --- start creating anchor: 2023-04-12 18:43:30.311 ---
+04-12 18:43:30.312 10954 10954 D ar_activity: --- anchor: com.google.ar.core.Anchor@30ae51c8 ---
+04-12 18:43:30.319 10954 10954 D ar_activity: --- finish creating anchor: 2023-04-12 18:43:30.318 ---
+04-12 18:43:30.319 10954 10954 D ar_activity: [hostAnchor start time=2023-04-12 18:43:30.319]
+04-12 18:43:30.320 10954 10954 D ar_activity: [hostAnchor end time=2023-04-12 18:43:30.320]
+04-12 18:43:30.326 10954 10954 D ar_activity: Start CONNECTING: 2023-04-12 18:43:30.326
+04-12 18:43:30.331 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:43:30.331]
+04-12 18:43:30.347 10954 10954 D ar_activity: [anchor resolution changed: null time=2023-04-12 18:43:30.346]
+04-12 18:43:32.926 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:43:32.925]
+04-12 18:43:32.926 10954 11101 D ar_activity: [--- onAnchorHosted [NOT HOSTED]--- time=2023-04-12 18:43:32.926]
+04-12 18:43:32.934 10954 10954 D ar_activity: [anchor resolution changed: true time=2023-04-12 18:43:32.934]
+04-12 18:43:32.942 10954 10954 D ar_activity: [onAnchorResolutionError: null time=2023-04-12 18:43:32.942]
+04-12 18:43:33.766 10954 10954 D ar_activity: SET ANCHOR: 2023-04-12 18:43:33.766
+04-12 18:43:34.375 10954 10954 D ar_activity: [anchor resolution changed: null time=2023-04-12 18:43:34.374]
+04-12 18:43:35.136 10954 10954 D ar_activity: [--- sync ready to set anchor --- time=2023-04-12 18:43:35.135]
+04-12 18:43:35.136 10954 10954 D ar_activity: [--- sync: sendSetAnchorEvent --- time=2023-04-12 18:43:35.136]
+04-12 18:43:35.137 10954 10954 D ar_activity: --- start creating anchor: 2023-04-12 18:43:35.136 ---
+04-12 18:43:35.137 10954 10954 D ar_activity: --- anchor: com.google.ar.core.Anchor@30b161c8 ---
+04-12 18:43:35.138 10954 10954 D ar_activity: --- finish creating anchor: 2023-04-12 18:43:35.137 ---
+04-12 18:43:35.140 10954 10954 D ar_activity: [hostAnchor start time=2023-04-12 18:43:35.138]
+04-12 18:43:35.142 10954 10954 D ar_activity: [hostAnchor end time=2023-04-12 18:43:35.141]
+04-12 18:43:35.147 10954 10954 D ar_activity: Start CONNECTING: 2023-04-12 18:43:35.146
+04-12 18:43:35.154 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:43:35.154]
+04-12 18:43:37.858 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:43:37.858]
+04-12 18:43:37.858 10954 11101 D ar_activity: [--- onAnchorHosted [NOT HOSTED]--- time=2023-04-12 18:43:37.858]
+04-12 18:43:37.884 10954 10954 D ar_activity: [anchor resolution changed: true time=2023-04-12 18:43:37.883]
+04-12 18:43:37.905 10954 10954 D ar_activity: [onAnchorResolutionError: null time=2023-04-12 18:43:37.905]
+04-12 18:43:39.635 10954 10954 D ar_activity: SET ANCHOR: 2023-04-12 18:43:39.635
+04-12 18:43:39.857 10954 10954 D ar_activity: [anchor resolution changed: null time=2023-04-12 18:43:39.856]
+04-12 18:43:42.640 10954 10954 D ar_activity: [--- sync ready to set anchor --- time=2023-04-12 18:43:42.639]
+04-12 18:43:42.641 10954 10954 D ar_activity: [--- sync: sendSetAnchorEvent --- time=2023-04-12 18:43:42.640]
+04-12 18:43:42.645 10954 10954 D ar_activity: --- start creating anchor: 2023-04-12 18:43:42.645 ---
+04-12 18:43:42.645 10954 10954 D ar_activity: --- anchor: com.google.ar.core.Anchor@30b138e8 ---
+04-12 18:43:42.646 10954 10954 D ar_activity: --- finish creating anchor: 2023-04-12 18:43:42.646 ---
+04-12 18:43:42.646 10954 10954 D ar_activity: [hostAnchor start time=2023-04-12 18:43:42.646]
+04-12 18:43:42.647 10954 10954 D ar_activity: [hostAnchor end time=2023-04-12 18:43:42.647]
+04-12 18:43:42.647 10954 10954 D ar_activity: Start CONNECTING: 2023-04-12 18:43:42.647
+04-12 18:43:42.660 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:43:42.659]
+04-12 18:43:45.227 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:43:45.226]
+04-12 18:43:45.228 10954 11101 D ar_activity: [--- onAnchorHosted [NOT HOSTED]--- time=2023-04-12 18:43:45.227]
+04-12 18:43:45.246 10954 10954 D ar_activity: [anchor resolution changed: true time=2023-04-12 18:43:45.245]
+04-12 18:43:45.258 10954 10954 D ar_activity: [onAnchorResolutionError: null time=2023-04-12 18:43:45.258]
+04-12 18:43:46.670 10954 10954 D ar_activity: SET ANCHOR: 2023-04-12 18:43:46.669
+04-12 18:43:46.970 10954 10954 D ar_activity: [anchor resolution changed: null time=2023-04-12 18:43:46.969]
+04-12 18:43:49.148 10954 10954 D ar_activity: [--- sync ready to set anchor --- time=2023-04-12 18:43:49.147]
+04-12 18:43:49.148 10954 10954 D ar_activity: [--- sync: sendSetAnchorEvent --- time=2023-04-12 18:43:49.148]
+04-12 18:43:49.156 10954 10954 D ar_activity: --- start creating anchor: 2023-04-12 18:43:49.155 ---
+04-12 18:43:49.160 10954 10954 D ar_activity: --- anchor: com.google.ar.core.Anchor@30b08308 ---
+04-12 18:43:49.161 10954 10954 D ar_activity: --- finish creating anchor: 2023-04-12 18:43:49.160 ---
+04-12 18:43:49.164 10954 10954 D ar_activity: [hostAnchor start time=2023-04-12 18:43:49.161]
+04-12 18:43:49.165 10954 10954 D ar_activity: [hostAnchor end time=2023-04-12 18:43:49.164]
+04-12 18:43:49.169 10954 10954 D ar_activity: Start CONNECTING: 2023-04-12 18:43:49.169
+04-12 18:43:49.183 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:43:49.183]
+04-12 18:43:52.092 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:43:52.092]
+04-12 18:43:52.093 10954 11101 D ar_activity: [--- onAnchorHosted [NOT HOSTED]--- time=2023-04-12 18:43:52.092]
+04-12 18:43:52.125 10954 10954 D ar_activity: [anchor resolution changed: true time=2023-04-12 18:43:52.124]
+04-12 18:43:52.146 10954 10954 D ar_activity: [onAnchorResolutionError: null time=2023-04-12 18:43:52.143]
+04-12 18:43:54.575 10954 10954 D ar_activity: SET ANCHOR: 2023-04-12 18:43:54.575
+04-12 18:43:55.042 10954 10954 D ar_activity: [anchor resolution changed: null time=2023-04-12 18:43:55.041]
+04-12 18:43:55.755 10954 10954 D ar_activity: [--- sync ready to set anchor --- time=2023-04-12 18:43:55.754]
+04-12 18:43:55.755 10954 10954 D ar_activity: [--- sync: sendSetAnchorEvent --- time=2023-04-12 18:43:55.755]
+04-12 18:43:55.755 10954 10954 D ar_activity: --- start creating anchor: 2023-04-12 18:43:55.755 ---
+04-12 18:43:55.755 10954 10954 D ar_activity: --- anchor: com.google.ar.core.Anchor@30b05208 ---
+04-12 18:43:55.755 10954 10954 D ar_activity: --- finish creating anchor: 2023-04-12 18:43:55.755 ---
+04-12 18:43:55.755 10954 10954 D ar_activity: [hostAnchor start time=2023-04-12 18:43:55.755]
+04-12 18:43:55.755 10954 10954 D ar_activity: [hostAnchor end time=2023-04-12 18:43:55.755]
+04-12 18:43:55.756 10954 10954 D ar_activity: Start CONNECTING: 2023-04-12 18:43:55.755
+04-12 18:43:55.776 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:43:55.775]
+04-12 18:43:57.869 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:43:57.868]
+04-12 18:43:57.870 10954 11101 D ar_activity: [--- onAnchorHosted [NOT HOSTED]--- time=2023-04-12 18:43:57.869]
+04-12 18:43:57.933 10954 10954 D ar_activity: [anchor resolution changed: true time=2023-04-12 18:43:57.933]
+04-12 18:43:57.956 10954 10954 D ar_activity: [onAnchorResolutionError: null time=2023-04-12 18:43:57.956]
+04-12 18:43:59.726 10954 10954 D ar_activity: SET ANCHOR: 2023-04-12 18:43:59.725
+04-12 18:44:00.675 10954 10954 D ar_activity: [anchor resolution changed: null time=2023-04-12 18:44:00.673]
+04-12 18:44:02.162 10954 10954 D ar_activity: [--- sync ready to set anchor --- time=2023-04-12 18:44:02.161]
+04-12 18:44:02.162 10954 10954 D ar_activity: [--- sync: sendSetAnchorEvent --- time=2023-04-12 18:44:02.162]
+04-12 18:44:02.163 10954 10954 D ar_activity: --- start creating anchor: 2023-04-12 18:44:02.163 ---
+04-12 18:44:02.164 10954 10954 D ar_activity: --- anchor: com.google.ar.core.Anchor@30af9868 ---
+04-12 18:44:02.164 10954 10954 D ar_activity: --- finish creating anchor: 2023-04-12 18:44:02.164 ---
+04-12 18:44:02.164 10954 10954 D ar_activity: [hostAnchor start time=2023-04-12 18:44:02.164]
+04-12 18:44:02.165 10954 10954 D ar_activity: [hostAnchor end time=2023-04-12 18:44:02.165]
+04-12 18:44:02.166 10954 10954 D ar_activity: Start CONNECTING: 2023-04-12 18:44:02.165
+04-12 18:44:02.169 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:44:02.168]
+04-12 18:44:05.066 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:44:05.065]
+04-12 18:44:05.066 10954 11101 D ar_activity: [--- onAnchorHosted [NOT HOSTED]--- time=2023-04-12 18:44:05.066]
+04-12 18:44:05.083 10954 10954 D ar_activity: [anchor resolution changed: true time=2023-04-12 18:44:05.083]
+04-12 18:44:05.089 10954 10954 D ar_activity: [onAnchorResolutionError: null time=2023-04-12 18:44:05.089]
+04-12 18:44:06.950 10954 10954 D ar_activity: SET ANCHOR: 2023-04-12 18:44:06.950
+04-12 18:44:07.181 10954 10954 D ar_activity: [anchor resolution changed: null time=2023-04-12 18:44:07.181]
+04-12 18:44:08.875 10954 10954 D ar_activity: [--- sync ready to set anchor --- time=2023-04-12 18:44:08.875]
+04-12 18:44:08.877 10954 10954 D ar_activity: [--- sync: sendSetAnchorEvent --- time=2023-04-12 18:44:08.876]
+04-12 18:44:08.878 10954 10954 D ar_activity: --- start creating anchor: 2023-04-12 18:44:08.877 ---
+04-12 18:44:08.878 10954 10954 D ar_activity: --- anchor: com.google.ar.core.Anchor@30af9168 ---
+04-12 18:44:08.878 10954 10954 D ar_activity: --- finish creating anchor: 2023-04-12 18:44:08.878 ---
+04-12 18:44:08.879 10954 10954 D ar_activity: [hostAnchor start time=2023-04-12 18:44:08.878]
+04-12 18:44:08.879 10954 10954 D ar_activity: [hostAnchor end time=2023-04-12 18:44:08.879]
+04-12 18:44:08.880 10954 10954 D ar_activity: Start CONNECTING: 2023-04-12 18:44:08.879
+04-12 18:44:08.892 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:44:08.892]
+04-12 18:44:11.773 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:44:11.772]
+04-12 18:44:11.774 10954 11101 D ar_activity: [--- onAnchorHosted [NOT HOSTED]--- time=2023-04-12 18:44:11.773]
+04-12 18:44:11.807 10954 10954 D ar_activity: [anchor resolution changed: true time=2023-04-12 18:44:11.807]
+04-12 18:44:11.818 10954 10954 D ar_activity: [onAnchorResolutionError: null time=2023-04-12 18:44:11.818]
+04-12 18:44:13.834 10954 10954 D ar_activity: SET ANCHOR: 2023-04-12 18:44:13.831
+04-12 18:44:14.441 10954 10954 D ar_activity: [anchor resolution changed: null time=2023-04-12 18:44:14.441]
+04-12 18:44:15.758 10954 10954 D ar_activity: [--- sync ready to set anchor --- time=2023-04-12 18:44:15.758]
+04-12 18:44:15.759 10954 10954 D ar_activity: [--- sync: sendSetAnchorEvent --- time=2023-04-12 18:44:15.759]
+04-12 18:44:15.759 10954 10954 D ar_activity: --- start creating anchor: 2023-04-12 18:44:15.759 ---
+04-12 18:44:15.759 10954 10954 D ar_activity: --- anchor: com.google.ar.core.Anchor@30b18bc8 ---
+04-12 18:44:15.759 10954 10954 D ar_activity: --- finish creating anchor: 2023-04-12 18:44:15.759 ---
+04-12 18:44:15.761 10954 10954 D ar_activity: [hostAnchor start time=2023-04-12 18:44:15.760]
+04-12 18:44:15.763 10954 10954 D ar_activity: [hostAnchor end time=2023-04-12 18:44:15.762]
+04-12 18:44:15.764 10954 10954 D ar_activity: Start CONNECTING: 2023-04-12 18:44:15.763
+04-12 18:44:15.786 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:44:15.785]
+04-12 18:44:18.213 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:44:18.213]
+04-12 18:44:18.213 10954 11101 D ar_activity: [--- onAnchorHosted [NOT HOSTED]--- time=2023-04-12 18:44:18.213]
+04-12 18:44:18.221 10954 10954 D ar_activity: [anchor resolution changed: true time=2023-04-12 18:44:18.220]
+04-12 18:44:18.227 10954 10954 D ar_activity: [onAnchorResolutionError: null time=2023-04-12 18:44:18.227]
+04-12 18:44:20.119 10954 10954 D ar_activity: SET ANCHOR: 2023-04-12 18:44:20.117
+04-12 18:44:21.455 10954 10954 D ar_activity: [anchor resolution changed: null time=2023-04-12 18:44:21.454]
+04-12 18:44:22.795 10954 10954 D ar_activity: [--- sync ready to set anchor --- time=2023-04-12 18:44:22.795]
+04-12 18:44:22.795 10954 10954 D ar_activity: [--- sync: sendSetAnchorEvent --- time=2023-04-12 18:44:22.795]
+04-12 18:44:22.795 10954 10954 D ar_activity: --- start creating anchor: 2023-04-12 18:44:22.795 ---
+04-12 18:44:22.796 10954 10954 D ar_activity: --- anchor: com.google.ar.core.Anchor@30b049c8 ---
+04-12 18:44:22.796 10954 10954 D ar_activity: --- finish creating anchor: 2023-04-12 18:44:22.796 ---
+04-12 18:44:22.796 10954 10954 D ar_activity: [hostAnchor start time=2023-04-12 18:44:22.796]
+04-12 18:44:22.796 10954 10954 D ar_activity: [hostAnchor end time=2023-04-12 18:44:22.796]
+04-12 18:44:22.796 10954 10954 D ar_activity: Start CONNECTING: 2023-04-12 18:44:22.796
+04-12 18:44:22.800 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:44:22.800]
+04-12 18:44:25.539 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:44:25.538]
+04-12 18:44:25.539 10954 11101 D ar_activity: [--- onAnchorHosted [NOT HOSTED]--- time=2023-04-12 18:44:25.539]
+04-12 18:44:25.557 10954 10954 D ar_activity: [anchor resolution changed: true time=2023-04-12 18:44:25.557]
+04-12 18:44:25.559 10954 10954 D ar_activity: [onAnchorResolutionError: null time=2023-04-12 18:44:25.558]
+04-12 18:44:27.776 10954 10954 D ar_activity: SET ANCHOR: 2023-04-12 18:44:27.776
+04-12 18:44:28.939 10954 10954 D ar_activity: [anchor resolution changed: null time=2023-04-12 18:44:28.938]
+04-12 18:44:29.520 10954 10954 D ar_activity: [--- sync ready to set anchor --- time=2023-04-12 18:44:29.520]
+04-12 18:44:29.520 10954 10954 D ar_activity: [--- sync: sendSetAnchorEvent --- time=2023-04-12 18:44:29.520]
+04-12 18:44:29.521 10954 10954 D ar_activity: --- start creating anchor: 2023-04-12 18:44:29.520 ---
+04-12 18:44:29.521 10954 10954 D ar_activity: --- anchor: com.google.ar.core.Anchor@30afc968 ---
+04-12 18:44:29.521 10954 10954 D ar_activity: --- finish creating anchor: 2023-04-12 18:44:29.521 ---
+04-12 18:44:29.521 10954 10954 D ar_activity: [hostAnchor start time=2023-04-12 18:44:29.521]
+04-12 18:44:29.521 10954 10954 D ar_activity: [hostAnchor end time=2023-04-12 18:44:29.521]
+04-12 18:44:29.521 10954 10954 D ar_activity: Start CONNECTING: 2023-04-12 18:44:29.521
+04-12 18:44:29.531 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:44:29.529]
+04-12 18:44:31.932 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:44:31.932]
+04-12 18:44:31.932 10954 11101 D ar_activity: [--- onAnchorHosted [NOT HOSTED]--- time=2023-04-12 18:44:31.932]
+04-12 18:44:31.939 10954 10954 D ar_activity: [anchor resolution changed: true time=2023-04-12 18:44:31.939]
+04-12 18:44:31.944 10954 10954 D ar_activity: [onAnchorResolutionError: null time=2023-04-12 18:44:31.944]
+04-12 18:44:33.372 10954 10954 D ar_activity: SET ANCHOR: 2023-04-12 18:44:33.372
+04-12 18:44:33.607 10954 10954 D ar_activity: [anchor resolution changed: null time=2023-04-12 18:44:33.606]
+04-12 18:44:35.766 10954 10954 D ar_activity: [--- sync ready to set anchor --- time=2023-04-12 18:44:35.765]
+04-12 18:44:35.767 10954 10954 D ar_activity: [--- sync: sendSetAnchorEvent --- time=2023-04-12 18:44:35.766]
+04-12 18:44:35.768 10954 10954 D ar_activity: --- start creating anchor: 2023-04-12 18:44:35.767 ---
+04-12 18:44:35.768 10954 10954 D ar_activity: --- anchor: com.google.ar.core.Anchor@30b08428 ---
+04-12 18:44:35.769 10954 10954 D ar_activity: --- finish creating anchor: 2023-04-12 18:44:35.768 ---
+04-12 18:44:35.769 10954 10954 D ar_activity: [hostAnchor start time=2023-04-12 18:44:35.769]
+04-12 18:44:35.769 10954 10954 D ar_activity: [hostAnchor end time=2023-04-12 18:44:35.769]
+04-12 18:44:35.770 10954 10954 D ar_activity: Start CONNECTING: 2023-04-12 18:44:35.770
+04-12 18:44:35.778 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:44:35.777]
+04-12 18:44:38.403 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:44:38.403]
+04-12 18:44:38.403 10954 11101 D ar_activity: [--- onAnchorHosted [NOT HOSTED]--- time=2023-04-12 18:44:38.403]
+04-12 18:44:38.429 10954 10954 D ar_activity: [anchor resolution changed: true time=2023-04-12 18:44:38.429]
+04-12 18:44:38.436 10954 10954 D ar_activity: [onAnchorResolutionError: null time=2023-04-12 18:44:38.436]
+04-12 18:44:40.714 10954 10954 D ar_activity: SET ANCHOR: 2023-04-12 18:44:40.714
+04-12 18:44:40.911 10954 10954 D ar_activity: [anchor resolution changed: null time=2023-04-12 18:44:40.910]
+04-12 18:44:43.047 10954 10954 D ar_activity: [--- sync ready to set anchor --- time=2023-04-12 18:44:43.046]
+04-12 18:44:43.048 10954 10954 D ar_activity: [--- sync: sendSetAnchorEvent --- time=2023-04-12 18:44:43.047]
+04-12 18:44:43.048 10954 10954 D ar_activity: --- start creating anchor: 2023-04-12 18:44:43.048 ---
+04-12 18:44:43.048 10954 10954 D ar_activity: --- anchor: com.google.ar.core.Anchor@30b1a588 ---
+04-12 18:44:43.049 10954 10954 D ar_activity: --- finish creating anchor: 2023-04-12 18:44:43.049 ---
+04-12 18:44:43.049 10954 10954 D ar_activity: [hostAnchor start time=2023-04-12 18:44:43.049]
+04-12 18:44:43.049 10954 10954 D ar_activity: [hostAnchor end time=2023-04-12 18:44:43.049]
+04-12 18:44:43.050 10954 10954 D ar_activity: Start CONNECTING: 2023-04-12 18:44:43.049
+04-12 18:44:43.061 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:44:43.061]
+04-12 18:44:45.788 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:44:45.788]
+04-12 18:44:45.788 10954 11101 D ar_activity: [--- onAnchorHosted [NOT HOSTED]--- time=2023-04-12 18:44:45.788]
+04-12 18:44:45.802 10954 10954 D ar_activity: [anchor resolution changed: true time=2023-04-12 18:44:45.801]
+04-12 18:44:45.811 10954 10954 D ar_activity: [onAnchorResolutionError: null time=2023-04-12 18:44:45.811]
+04-12 18:44:49.143 10954 10954 D ar_activity: SET ANCHOR: 2023-04-12 18:44:49.143
+04-12 18:44:49.381 10954 10954 D ar_activity: [anchor resolution changed: null time=2023-04-12 18:44:49.380]
+04-12 18:44:49.548 10954 10954 D ar_activity: [--- sync ready to set anchor --- time=2023-04-12 18:44:49.547]
+04-12 18:44:49.548 10954 10954 D ar_activity: [--- sync: sendSetAnchorEvent --- time=2023-04-12 18:44:49.548]
+04-12 18:44:49.548 10954 10954 D ar_activity: --- start creating anchor: 2023-04-12 18:44:49.548 ---
+04-12 18:44:49.548 10954 10954 D ar_activity: --- anchor: com.google.ar.core.Anchor@30b1c2a8 ---
+04-12 18:44:49.548 10954 10954 D ar_activity: --- finish creating anchor: 2023-04-12 18:44:49.548 ---
+04-12 18:44:49.548 10954 10954 D ar_activity: [hostAnchor start time=2023-04-12 18:44:49.548]
+04-12 18:44:49.549 10954 10954 D ar_activity: [hostAnchor end time=2023-04-12 18:44:49.548]
+04-12 18:44:49.549 10954 10954 D ar_activity: Start CONNECTING: 2023-04-12 18:44:49.549
+04-12 18:44:49.560 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:44:49.560]
+04-12 18:44:51.761 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:44:51.761]
+04-12 18:44:51.761 10954 11101 D ar_activity: [--- onAnchorHosted [NOT HOSTED]--- time=2023-04-12 18:44:51.761]
+04-12 18:44:51.778 10954 10954 D ar_activity: [anchor resolution changed: true time=2023-04-12 18:44:51.778]
+04-12 18:44:51.779 10954 10954 D ar_activity: [onAnchorResolutionError: null time=2023-04-12 18:44:51.779]
+04-12 18:44:53.760 10954 10954 D ar_activity: SET ANCHOR: 2023-04-12 18:44:53.760
+04-12 18:44:54.362 10954 10954 D ar_activity: [anchor resolution changed: null time=2023-04-12 18:44:54.361]
+04-12 18:44:55.846 10954 10954 D ar_activity: [--- sync ready to set anchor --- time=2023-04-12 18:44:55.846]
+04-12 18:44:55.847 10954 10954 D ar_activity: [--- sync: sendSetAnchorEvent --- time=2023-04-12 18:44:55.846]
+04-12 18:44:55.847 10954 10954 D ar_activity: --- start creating anchor: 2023-04-12 18:44:55.847 ---
+04-12 18:44:55.847 10954 10954 D ar_activity: --- anchor: com.google.ar.core.Anchor@30b0dcc8 ---
+04-12 18:44:55.847 10954 10954 D ar_activity: --- finish creating anchor: 2023-04-12 18:44:55.847 ---
+04-12 18:44:55.847 10954 10954 D ar_activity: [hostAnchor start time=2023-04-12 18:44:55.847]
+04-12 18:44:55.847 10954 10954 D ar_activity: [hostAnchor end time=2023-04-12 18:44:55.847]
+04-12 18:44:55.847 10954 10954 D ar_activity: Start CONNECTING: 2023-04-12 18:44:55.847
+04-12 18:44:55.863 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:44:55.863]
+04-12 18:44:58.768 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:44:58.768]
+04-12 18:44:58.769 10954 11101 D ar_activity: [--- onAnchorHosted [NOT HOSTED]--- time=2023-04-12 18:44:58.768]
+04-12 18:44:58.788 10954 10954 D ar_activity: [anchor resolution changed: true time=2023-04-12 18:44:58.788]
+04-12 18:44:58.790 10954 10954 D ar_activity: [onAnchorResolutionError: null time=2023-04-12 18:44:58.790]
+04-12 18:45:02.249 10954 10954 D ar_activity: [--- sync ready to set anchor --- time=2023-04-12 18:45:02.248]
+04-12 18:45:02.270 10954 10954 D ar_activity: [anchor resolution changed: null time=2023-04-12 18:45:02.270]
+04-12 18:45:02.671 10954 10954 D ar_activity: SET ANCHOR: 2023-04-12 18:45:02.671
+04-12 18:45:03.258 10954 10954 D ar_activity: [--- sync: sendSetAnchorEvent --- time=2023-04-12 18:45:03.257]
+04-12 18:45:03.258 10954 10954 D ar_activity: --- start creating anchor: 2023-04-12 18:45:03.258 ---
+04-12 18:45:03.258 10954 10954 D ar_activity: --- anchor: com.google.ar.core.Anchor@30b10468 ---
+04-12 18:45:03.258 10954 10954 D ar_activity: --- finish creating anchor: 2023-04-12 18:45:03.258 ---
+04-12 18:45:03.258 10954 10954 D ar_activity: [hostAnchor start time=2023-04-12 18:45:03.258]
+04-12 18:45:03.258 10954 10954 D ar_activity: [hostAnchor end time=2023-04-12 18:45:03.258]
+04-12 18:45:03.259 10954 10954 D ar_activity: Start CONNECTING: 2023-04-12 18:45:03.259
+04-12 18:45:03.264 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:45:03.264]
+04-12 18:45:03.306 10954 10954 D ar_activity: [anchor resolution changed: null time=2023-04-12 18:45:03.306]
+04-12 18:45:05.589 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:45:05.589]
+04-12 18:45:06.296 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:45:06.295]
+04-12 18:45:06.296 10954 11101 D ar_activity: [--- onAnchorHosted [NOT HOSTED]--- time=2023-04-12 18:45:06.296]
+04-12 18:45:06.300 10954 10954 D ar_activity: [anchor resolution changed: true time=2023-04-12 18:45:06.300]
+04-12 18:45:06.301 10954 10954 D ar_activity: [onAnchorResolutionError: null time=2023-04-12 18:45:06.301]
+04-12 18:45:09.025 10954 10954 D ar_activity: SET ANCHOR: 2023-04-12 18:45:09.022
+04-12 18:45:09.447 10954 10954 D ar_activity: [anchor resolution changed: null time=2023-04-12 18:45:09.447]
+04-12 18:45:10.565 10954 10954 D ar_activity: [--- sync ready to set anchor --- time=2023-04-12 18:45:10.565]
+04-12 18:45:10.565 10954 10954 D ar_activity: [--- sync: sendSetAnchorEvent --- time=2023-04-12 18:45:10.565]
+04-12 18:45:10.569 10954 10954 D ar_activity: --- start creating anchor: 2023-04-12 18:45:10.569 ---
+04-12 18:45:10.569 10954 10954 D ar_activity: --- anchor: com.google.ar.core.Anchor@30b00168 ---
+04-12 18:45:10.569 10954 10954 D ar_activity: --- finish creating anchor: 2023-04-12 18:45:10.569 ---
+04-12 18:45:10.569 10954 10954 D ar_activity: [hostAnchor start time=2023-04-12 18:45:10.569]
+04-12 18:45:10.570 10954 10954 D ar_activity: [hostAnchor end time=2023-04-12 18:45:10.569]
+04-12 18:45:10.570 10954 10954 D ar_activity: Start CONNECTING: 2023-04-12 18:45:10.570
+04-12 18:45:10.594 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:45:10.594]
+04-12 18:45:12.833 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:45:12.833]
+04-12 18:45:12.833 10954 11101 D ar_activity: [--- onAnchorHosted [NOT HOSTED]--- time=2023-04-12 18:45:12.833]
+04-12 18:45:12.853 10954 10954 D ar_activity: [anchor resolution changed: true time=2023-04-12 18:45:12.853]
+04-12 18:45:12.855 10954 10954 D ar_activity: [onAnchorResolutionError: null time=2023-04-12 18:45:12.855]
+04-12 18:45:13.684 10954 10954 D ar_activity: SET ANCHOR: 2023-04-12 18:45:13.684
+04-12 18:45:14.274 10954 10954 D ar_activity: [anchor resolution changed: null time=2023-04-12 18:45:14.274]
+04-12 18:45:15.843 10954 10954 D ar_activity: [--- sync ready to set anchor --- time=2023-04-12 18:45:15.843]
+04-12 18:45:15.843 10954 10954 D ar_activity: [--- sync: sendSetAnchorEvent --- time=2023-04-12 18:45:15.843]
+04-12 18:45:15.843 10954 10954 D ar_activity: --- start creating anchor: 2023-04-12 18:45:15.843 ---
+04-12 18:45:15.843 10954 10954 D ar_activity: --- anchor: com.google.ar.core.Anchor@30b0f8c8 ---
+04-12 18:45:15.844 10954 10954 D ar_activity: --- finish creating anchor: 2023-04-12 18:45:15.844 ---
+04-12 18:45:15.844 10954 10954 D ar_activity: [hostAnchor start time=2023-04-12 18:45:15.844]
+04-12 18:45:15.844 10954 10954 D ar_activity: [hostAnchor end time=2023-04-12 18:45:15.844]
+04-12 18:45:15.844 10954 10954 D ar_activity: Start CONNECTING: 2023-04-12 18:45:15.844
+04-12 18:45:15.852 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:45:15.852]
+04-12 18:45:18.762 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:45:18.761]
+04-12 18:45:18.762 10954 11101 D ar_activity: [--- onAnchorHosted [NOT HOSTED]--- time=2023-04-12 18:45:18.762]
+04-12 18:45:18.777 10954 10954 D ar_activity: [anchor resolution changed: true time=2023-04-12 18:45:18.777]
+04-12 18:45:18.778 10954 10954 D ar_activity: [onAnchorResolutionError: null time=2023-04-12 18:45:18.778]
+04-12 18:45:20.582 10954 10954 D ar_activity: SET ANCHOR: 2023-04-12 18:45:20.580
+04-12 18:45:21.456 10954 10954 D ar_activity: [anchor resolution changed: null time=2023-04-12 18:45:21.456]
+04-12 18:45:21.925 10954 10954 D ar_activity: [--- sync ready to set anchor --- time=2023-04-12 18:45:21.925]
+04-12 18:45:21.926 10954 10954 D ar_activity: [--- sync: sendSetAnchorEvent --- time=2023-04-12 18:45:21.925]
+04-12 18:45:21.926 10954 10954 D ar_activity: --- start creating anchor: 2023-04-12 18:45:21.926 ---
+04-12 18:45:21.927 10954 10954 D ar_activity: --- anchor: com.google.ar.core.Anchor@30b08fc8 ---
+04-12 18:45:21.927 10954 10954 D ar_activity: --- finish creating anchor: 2023-04-12 18:45:21.927 ---
+04-12 18:45:21.927 10954 10954 D ar_activity: [hostAnchor start time=2023-04-12 18:45:21.927]
+04-12 18:45:21.927 10954 10954 D ar_activity: [hostAnchor end time=2023-04-12 18:45:21.927]
+04-12 18:45:21.927 10954 10954 D ar_activity: Start CONNECTING: 2023-04-12 18:45:21.927
+04-12 18:45:21.938 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:45:21.938]
+04-12 18:45:24.367 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:45:24.367]
+04-12 18:45:24.367 10954 11101 D ar_activity: [--- onAnchorHosted [NOT HOSTED]--- time=2023-04-12 18:45:24.367]
+04-12 18:45:24.384 10954 10954 D ar_activity: [anchor resolution changed: true time=2023-04-12 18:45:24.383]
+04-12 18:45:24.386 10954 10954 D ar_activity: [onAnchorResolutionError: null time=2023-04-12 18:45:24.386]
+04-12 18:45:26.199 10954 10954 D ar_activity: SET ANCHOR: 2023-04-12 18:45:26.198
+04-12 18:45:26.622 10954 10954 D ar_activity: [anchor resolution changed: null time=2023-04-12 18:45:26.621]
+04-12 18:45:27.367 10954 10954 D ar_activity: [--- sync ready to set anchor --- time=2023-04-12 18:45:27.367]
+04-12 18:45:27.367 10954 10954 D ar_activity: [--- sync: sendSetAnchorEvent --- time=2023-04-12 18:45:27.367]
+04-12 18:45:27.367 10954 10954 D ar_activity: --- start creating anchor: 2023-04-12 18:45:27.367 ---
+04-12 18:45:27.367 10954 10954 D ar_activity: --- anchor: com.google.ar.core.Anchor@30b19b08 ---
+04-12 18:45:27.367 10954 10954 D ar_activity: --- finish creating anchor: 2023-04-12 18:45:27.367 ---
+04-12 18:45:27.368 10954 10954 D ar_activity: [hostAnchor start time=2023-04-12 18:45:27.367]
+04-12 18:45:27.369 10954 10954 D ar_activity: [hostAnchor end time=2023-04-12 18:45:27.368]
+04-12 18:45:27.369 10954 10954 D ar_activity: Start CONNECTING: 2023-04-12 18:45:27.369
+04-12 18:45:27.389 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:45:27.384]
+04-12 18:45:30.129 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:45:30.128]
+04-12 18:45:30.129 10954 11101 D ar_activity: [--- onAnchorHosted [NOT HOSTED]--- time=2023-04-12 18:45:30.129]
+04-12 18:45:30.146 10954 10954 D ar_activity: [anchor resolution changed: true time=2023-04-12 18:45:30.146]
+04-12 18:45:30.151 10954 10954 D ar_activity: [onAnchorResolutionError: null time=2023-04-12 18:45:30.151]
+04-12 18:45:31.299 10954 10954 D ar_activity: SET ANCHOR: 2023-04-12 18:45:31.299
+04-12 18:45:33.768 10954 10954 D ar_activity: [--- sync ready to set anchor --- time=2023-04-12 18:45:33.768]
+04-12 18:45:33.773 10954 10954 D ar_activity: [anchor resolution changed: null time=2023-04-12 18:45:33.772]
+04-12 18:45:40.253 10954 10954 D ar_activity: [--- sync: sendSetAnchorEvent --- time=2023-04-12 18:45:40.252]
+04-12 18:45:40.253 10954 10954 D ar_activity: --- start creating anchor: 2023-04-12 18:45:40.253 ---
+04-12 18:45:40.253 10954 10954 D ar_activity: --- anchor: com.google.ar.core.Anchor@30b0da88 ---
+04-12 18:45:40.253 10954 10954 D ar_activity: --- finish creating anchor: 2023-04-12 18:45:40.253 ---
+04-12 18:45:40.253 10954 10954 D ar_activity: [hostAnchor start time=2023-04-12 18:45:40.253]
+04-12 18:45:40.267 10954 10954 D ar_activity: [hostAnchor end time=2023-04-12 18:45:40.267]
+04-12 18:45:40.272 10954 10954 D ar_activity: [anchor resolution changed: null time=2023-04-12 18:45:40.272]
+04-12 18:45:40.274 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:45:40.274]
+04-12 18:45:40.275 10954 10954 D ar_activity: Start CONNECTING: 2023-04-12 18:45:40.275
+04-12 18:45:43.210 10954 11101 D ar_activity: [--- anchor: onUpdate--- time=2023-04-12 18:45:43.210]
+04-12 18:45:43.211 10954 11101 D ar_activity: [--- onAnchorHosted [HOSTED]--- time=2023-04-12 18:45:43.210]
+04-12 18:45:43.214 10954 10954 D ar_activity: [anchor resolution changed: false time=2023-04-12 18:45:43.214]
+04-12 18:45:45.769 10954 10954 D ar_activity: [--- sync: finish syncing anchor --- time=2023-04-12 18:45:45.769]
+04-12 18:45:45.771 10954 10954 D ar_activity: SYNCED: 2023-04-12 18:45:45.770
+04-12 18:45:45.831 10954 10954 D ar_activity: [[2a end - 2d start] onChildAdded stroke id=-NSrdMW6t0zL6TNjPOlg time=2023-04-12 18:45:45.830]
+04-12 18:45:45.837 10954 10954 D ar_activity: stroke (id: -NSrdMW6t0zL6TNjPOlg) was resolved at 2023-04-12 18:45:45.837
+04-12 18:45:45.838 10954 10954 D ar_activity: [[2a end or 2d start] onLineAdded stroke id=-NSrdMW6t0zL6TNjPOlg time=2023-04-12 18:45:45.837]
+04-12 18:45:45.859 10954 11101 D ar_activity: [[2d] after update lines time=2023-04-12 18:45:45.859]
+04-12 18:45:53.764 10954 10954 D ar_activity: [[1a start] touch screen time=2023-04-12 18:45:53.763]
+04-12 18:45:53.769 10954 11101 D ar_activity: addStroke at 2023-04-12 18:45:53.769
+04-12 18:45:53.772 10954 11101 D ar_activity: stroke (id: -NSrdOTLy4IkgsNzFTZV) was added at 2023-04-12 18:45:53.771
+04-12 18:45:53.774 10954 11101 D ar_activity: [[1b start] setFirebaseValue stroke id=-NSrdOTLy4IkgsNzFTZV time=2023-04-12 18:45:53.773]
+04-12 18:45:53.780 10954 11101 D ar_activity: [TRACKING TransformPointToPose time=2023-04-12 18:45:53.780]
+04-12 18:45:53.784 10954 11101 D ar_activity: send stroke to firebase, id=-NSrdOTLy4IkgsNzFTZV
+04-12 18:45:53.786 10954 10954 D ar_activity: [[2a end - 2d start] onChildAdded stroke id=-NSrdOTLy4IkgsNzFTZV time=2023-04-12 18:45:53.786]
+04-12 18:45:53.788 10954 11101 D ar_activity: [[2d] after update lines time=2023-04-12 18:45:53.787]
+04-12 18:45:53.808 10954 11101 D ar_activity: [TRACKING TransformPointToPose time=2023-04-12 18:45:53.808]
+04-12 18:45:53.809 10954 11101 D ar_activity: send stroke to firebase, id=-NSrdOTLy4IkgsNzFTZV
+04-12 18:45:53.811 10954 11101 D ar_activity: [[2d] after update lines time=2023-04-12 18:45:53.810]
+04-12 18:45:53.839 10954 11101 D ar_activity: [TRACKING TransformPointToPose time=2023-04-12 18:45:53.839]
+04-12 18:45:53.840 10954 11101 D ar_activity: [TRACKING TransformPointToPose time=2023-04-12 18:45:53.839]
+04-12 18:45:53.840 10954 11101 D ar_activity: send stroke to firebase, id=-NSrdOTLy4IkgsNzFTZV
+04-12 18:45:53.841 10954 11101 D ar_activity: [[2d] after update lines time=2023-04-12 18:45:53.841]
+04-12 18:45:53.862 10954 11101 D ar_activity: [TRACKING TransformPointToPose time=2023-04-12 18:45:53.862]
+04-12 18:45:53.862 10954 10954 D ar_activity: [[1b start] setFirebaseValue stroke id=-NSrdOTLy4IkgsNzFTZV time=2023-04-12 18:45:53.861]
+04-12 18:45:53.862 10954 11101 D ar_activity: send stroke to firebase, id=-NSrdOTLy4IkgsNzFTZV
+04-12 18:45:53.863 10954 11101 D ar_activity: [[2d] after update lines time=2023-04-12 18:45:53.863]
+04-12 18:45:53.875 10954 10954 D ar_activity: [[2a end - 2d start] onChildChanged stroke id=-NSrdOTLy4IkgsNzFTZV time=2023-04-12 18:45:53.875]
+04-12 18:45:53.882 10954 11101 D ar_activity: [TRACKING TransformPointToPose time=2023-04-12 18:45:53.882]
+04-12 18:45:53.882 10954 11101 D ar_activity: [TRACKING TransformPointToPose time=2023-04-12 18:45:53.882]
+04-12 18:45:53.882 10954 11101 D ar_activity: send stroke to firebase, id=-NSrdOTLy4IkgsNzFTZV
+04-12 18:45:53.883 10954 11101 D ar_activity: [[2d] after update lines time=2023-04-12 18:45:53.883]
+04-12 18:45:53.939 10954 10954 D ar_activity: [[2a end - 2d start] onChildChanged stroke id=-NSrdOTLy4IkgsNzFTZV time=2023-04-12 18:45:53.938]

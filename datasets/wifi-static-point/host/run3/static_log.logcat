@@ -1,0 +1,163 @@
+--------- beginning of main
+04-13 01:08:47.192 21139 21276 D ar_activity: [[2d] after update lines time=2023-04-13 01:08:47.157]
+04-13 01:08:50.595 21139 21139 D ar_activity: [--- pair start --- time=2023-04-13 01:08:50.594]
+04-13 01:08:50.595 21139 21139 D ar_activity: [--- pair session start --- time=2023-04-13 01:08:50.595]
+04-13 01:08:50.627 21139 21139 D ar_activity: [create room: Message{namespace='', type='', content=[34 bytes]} time=2023-04-13 01:08:50.627]
+04-13 01:08:50.644 21139 21139 D ar_activity: LOOKING: 2023-04-13 01:08:50.644
+04-13 01:08:54.478 21139 21139 D ar_activity: [--- pair joined --- time=2023-04-13 01:08:54.477]
+04-13 01:08:54.493 21139 21139 D ar_activity: PARTNER FOUND: 2023-04-13 01:08:54.493
+04-13 01:08:56.525 21139 21139 D ar_activity: SET ANCHOR: 2023-04-13 01:08:56.525
+04-13 01:08:57.589 21139 21139 D ar_activity: [anchor resolution changed: null time=2023-04-13 01:08:57.588]
+04-13 01:08:58.058 21139 21139 D ar_activity: [--- sync ready to set anchor --- time=2023-04-13 01:08:58.058]
+04-13 01:08:58.058 21139 21139 D ar_activity: Start CONNECTING: 2023-04-13 01:08:58.058
+04-13 01:09:00.519 21139 21139 D ar_activity: [anchor resolution changed: true time=2023-04-13 01:09:00.519]
+04-13 01:09:00.527 21139 21139 D ar_activity: [onAnchorResolutionError: null time=2023-04-13 01:09:00.527]
+04-13 01:09:01.773 21139 21139 D ar_activity: SET ANCHOR: 2023-04-13 01:09:01.772
+04-13 01:09:02.534 21139 21139 D ar_activity: [anchor resolution changed: null time=2023-04-13 01:09:02.533]
+04-13 01:09:02.866 21139 21139 D ar_activity: [--- sync ready to set anchor --- time=2023-04-13 01:09:02.866]
+04-13 01:09:02.866 21139 21139 D ar_activity: Start CONNECTING: 2023-04-13 01:09:02.866
+04-13 01:09:05.544 21139 21139 D ar_activity: [anchor resolution changed: true time=2023-04-13 01:09:05.544]
+04-13 01:09:05.551 21139 21139 D ar_activity: [onAnchorResolutionError: null time=2023-04-13 01:09:05.551]
+04-13 01:09:06.421 21139 21139 D ar_activity: SET ANCHOR: 2023-04-13 01:09:06.419
+04-13 01:09:07.227 21139 21139 D ar_activity: [anchor resolution changed: null time=2023-04-13 01:09:07.227]
+04-13 01:09:07.576 21139 21139 D ar_activity: [--- sync ready to set anchor --- time=2023-04-13 01:09:07.576]
+04-13 01:09:07.576 21139 21139 D ar_activity: Start CONNECTING: 2023-04-13 01:09:07.576
+04-13 01:09:10.457 21139 21139 D ar_activity: [anchor resolution changed: true time=2023-04-13 01:09:10.457]
+04-13 01:09:10.463 21139 21139 D ar_activity: [onAnchorResolutionError: null time=2023-04-13 01:09:10.462]
+04-13 01:09:11.489 21139 21139 D ar_activity: SET ANCHOR: 2023-04-13 01:09:11.488
+04-13 01:09:12.164 21139 21139 D ar_activity: [anchor resolution changed: null time=2023-04-13 01:09:12.164]
+04-13 01:09:12.497 21139 21139 D ar_activity: [--- sync ready to set anchor --- time=2023-04-13 01:09:12.497]
+04-13 01:09:12.497 21139 21139 D ar_activity: Start CONNECTING: 2023-04-13 01:09:12.497
+04-13 01:09:15.379 21139 21139 D ar_activity: [anchor resolution changed: true time=2023-04-13 01:09:15.378]
+04-13 01:09:15.386 21139 21139 D ar_activity: [onAnchorResolutionError: null time=2023-04-13 01:09:15.385]
+04-13 01:09:16.182 21139 21139 D ar_activity: SET ANCHOR: 2023-04-13 01:09:16.182
+04-13 01:09:16.706 21139 21139 D ar_activity: [anchor resolution changed: null time=2023-04-13 01:09:16.705]
+04-13 01:09:16.998 21139 21139 D ar_activity: [--- sync ready to set anchor --- time=2023-04-13 01:09:16.996]
+04-13 01:09:16.998 21139 21139 D ar_activity: Start CONNECTING: 2023-04-13 01:09:16.998
+04-13 01:09:19.866 21139 21139 D ar_activity: [anchor resolution changed: true time=2023-04-13 01:09:19.865]
+04-13 01:09:19.872 21139 21139 D ar_activity: [onAnchorResolutionError: null time=2023-04-13 01:09:19.872]
+04-13 01:09:21.154 21139 21139 D ar_activity: SET ANCHOR: 2023-04-13 01:09:21.154
+04-13 01:09:21.404 21139 21139 D ar_activity: [--- sync ready to set anchor --- time=2023-04-13 01:09:21.403]
+04-13 01:09:21.405 21139 21139 D ar_activity: [anchor resolution changed: null time=2023-04-13 01:09:21.404]
+04-13 01:09:21.809 21139 21139 D ar_activity: Start CONNECTING: 2023-04-13 01:09:21.809
+04-13 01:09:21.836 21139 21139 D ar_activity: [anchor resolution changed: null time=2023-04-13 01:09:21.835]
+04-13 01:09:25.221 21139 21139 D ar_activity: [anchor resolution changed: true time=2023-04-13 01:09:25.221]
+04-13 01:09:25.232 21139 21139 D ar_activity: [onAnchorResolutionError: null time=2023-04-13 01:09:25.232]
+04-13 01:09:25.970 21139 21139 D ar_activity: SET ANCHOR: 2023-04-13 01:09:25.970
+04-13 01:09:26.492 21139 21139 D ar_activity: [anchor resolution changed: null time=2023-04-13 01:09:26.492]
+04-13 01:09:26.605 21139 21139 D ar_activity: [--- sync ready to set anchor --- time=2023-04-13 01:09:26.604]
+04-13 01:09:26.605 21139 21139 D ar_activity: Start CONNECTING: 2023-04-13 01:09:26.605
+04-13 01:09:29.519 21139 21139 D ar_activity: [anchor resolution changed: true time=2023-04-13 01:09:29.519]
+04-13 01:09:29.525 21139 21139 D ar_activity: [onAnchorResolutionError: null time=2023-04-13 01:09:29.525]
+04-13 01:09:30.255 21139 21139 D ar_activity: SET ANCHOR: 2023-04-13 01:09:30.255
+04-13 01:09:30.830 21139 21139 D ar_activity: [anchor resolution changed: null time=2023-04-13 01:09:30.830]
+04-13 01:09:31.136 21139 21139 D ar_activity: [--- sync ready to set anchor --- time=2023-04-13 01:09:31.134]
+04-13 01:09:31.138 21139 21139 D ar_activity: Start CONNECTING: 2023-04-13 01:09:31.138
+04-13 01:09:33.611 21139 21139 D ar_activity: [anchor resolution changed: true time=2023-04-13 01:09:33.610]
+04-13 01:09:33.618 21139 21139 D ar_activity: [onAnchorResolutionError: null time=2023-04-13 01:09:33.618]
+04-13 01:09:34.346 21139 21139 D ar_activity: SET ANCHOR: 2023-04-13 01:09:34.346
+04-13 01:09:34.954 21139 21139 D ar_activity: [anchor resolution changed: null time=2023-04-13 01:09:34.954]
+04-13 01:09:35.152 21139 21139 D ar_activity: [--- sync ready to set anchor --- time=2023-04-13 01:09:35.152]
+04-13 01:09:35.153 21139 21139 D ar_activity: Start CONNECTING: 2023-04-13 01:09:35.152
+04-13 01:09:38.421 21139 21139 D ar_activity: [anchor resolution changed: true time=2023-04-13 01:09:38.421]
+04-13 01:09:38.424 21139 21139 D ar_activity: [onAnchorResolutionError: null time=2023-04-13 01:09:38.423]
+04-13 01:09:39.066 21139 21139 D ar_activity: SET ANCHOR: 2023-04-13 01:09:39.065
+04-13 01:09:39.677 21139 21139 D ar_activity: [anchor resolution changed: null time=2023-04-13 01:09:39.676]
+04-13 01:09:39.870 21139 21139 D ar_activity: [--- sync ready to set anchor --- time=2023-04-13 01:09:39.870]
+04-13 01:09:39.870 21139 21139 D ar_activity: Start CONNECTING: 2023-04-13 01:09:39.870
+04-13 01:09:43.033 21139 21139 D ar_activity: [anchor resolution changed: true time=2023-04-13 01:09:43.032]
+04-13 01:09:43.047 21139 21139 D ar_activity: [onAnchorResolutionError: null time=2023-04-13 01:09:43.046]
+04-13 01:09:43.716 21139 21139 D ar_activity: SET ANCHOR: 2023-04-13 01:09:43.716
+04-13 01:09:44.384 21139 21139 D ar_activity: [anchor resolution changed: null time=2023-04-13 01:09:44.384]
+04-13 01:09:44.650 21139 21139 D ar_activity: [--- sync ready to set anchor --- time=2023-04-13 01:09:44.650]
+04-13 01:09:44.650 21139 21139 D ar_activity: Start CONNECTING: 2023-04-13 01:09:44.650
+04-13 01:09:47.834 21139 21139 D ar_activity: [anchor resolution changed: true time=2023-04-13 01:09:47.832]
+04-13 01:09:47.850 21139 21139 D ar_activity: [onAnchorResolutionError: null time=2023-04-13 01:09:47.849]
+04-13 01:09:48.480 21139 21139 D ar_activity: SET ANCHOR: 2023-04-13 01:09:48.479
+04-13 01:09:49.062 21139 21139 D ar_activity: [anchor resolution changed: null time=2023-04-13 01:09:49.062]
+04-13 01:09:49.179 21139 21139 D ar_activity: [--- sync ready to set anchor --- time=2023-04-13 01:09:49.179]
+04-13 01:09:49.180 21139 21139 D ar_activity: Start CONNECTING: 2023-04-13 01:09:49.179
+04-13 01:09:52.025 21139 21139 D ar_activity: [anchor resolution changed: true time=2023-04-13 01:09:52.025]
+04-13 01:09:52.033 21139 21139 D ar_activity: [onAnchorResolutionError: null time=2023-04-13 01:09:52.032]
+04-13 01:09:52.686 21139 21139 D ar_activity: SET ANCHOR: 2023-04-13 01:09:52.686
+04-13 01:09:53.222 21139 21139 D ar_activity: [anchor resolution changed: null time=2023-04-13 01:09:53.221]
+04-13 01:09:53.355 21139 21139 D ar_activity: [--- sync ready to set anchor --- time=2023-04-13 01:09:53.355]
+04-13 01:09:53.355 21139 21139 D ar_activity: Start CONNECTING: 2023-04-13 01:09:53.355
+04-13 01:09:56.761 21139 21139 D ar_activity: [anchor resolution changed: true time=2023-04-13 01:09:56.761]
+04-13 01:09:56.764 21139 21139 D ar_activity: [onAnchorResolutionError: null time=2023-04-13 01:09:56.764]
+04-13 01:09:57.362 21139 21139 D ar_activity: SET ANCHOR: 2023-04-13 01:09:57.361
+04-13 01:09:58.021 21139 21139 D ar_activity: [anchor resolution changed: null time=2023-04-13 01:09:58.020]
+04-13 01:09:58.210 21139 21139 D ar_activity: [--- sync ready to set anchor --- time=2023-04-13 01:09:58.210]
+04-13 01:09:58.210 21139 21139 D ar_activity: Start CONNECTING: 2023-04-13 01:09:58.210
+04-13 01:10:01.449 21139 21139 D ar_activity: [anchor resolution changed: true time=2023-04-13 01:10:01.449]
+04-13 01:10:01.451 21139 21139 D ar_activity: [onAnchorResolutionError: null time=2023-04-13 01:10:01.451]
+04-13 01:10:02.103 21139 21139 D ar_activity: SET ANCHOR: 2023-04-13 01:10:02.103
+04-13 01:10:02.648 21139 21139 D ar_activity: [anchor resolution changed: null time=2023-04-13 01:10:02.648]
+04-13 01:10:02.761 21139 21139 D ar_activity: [--- sync ready to set anchor --- time=2023-04-13 01:10:02.761]
+04-13 01:10:02.761 21139 21139 D ar_activity: Start CONNECTING: 2023-04-13 01:10:02.761
+04-13 01:10:05.339 21139 21139 D ar_activity: [anchor resolution changed: false time=2023-04-13 01:10:05.339]
+04-13 01:10:05.347 21139 21276 D ar_activity: [--- anchor: onUpdate: resolveHostedAnchor: pending resolve--- time=2023-04-13 01:10:05.347]
+04-13 01:10:05.348 21139 21276 D ar_activity: [resolveHostedAnchor: TASK_IN_PROGRESS time=2023-04-13 01:10:05.347]
+04-13 01:10:05.370 21139 21276 D ar_activity: [--- anchor: onUpdate: resolveHostedAnchor: pending resolve--- time=2023-04-13 01:10:05.367]
+04-13 01:10:05.370 21139 21276 D ar_activity: [resolveHostedAnchor: TASK_IN_PROGRESS time=2023-04-13 01:10:05.370]
+04-13 01:10:05.399 21139 21276 D ar_activity: [--- anchor: onUpdate: resolveHostedAnchor: pending resolve--- time=2023-04-13 01:10:05.399]
+04-13 01:10:05.400 21139 21276 D ar_activity: [resolveHostedAnchor: TASK_IN_PROGRESS time=2023-04-13 01:10:05.399]
+04-13 01:10:05.422 21139 21276 D ar_activity: [--- anchor: onUpdate: resolveHostedAnchor: pending resolve--- time=2023-04-13 01:10:05.422]
+04-13 01:10:05.423 21139 21276 D ar_activity: [resolveHostedAnchor: TASK_IN_PROGRESS time=2023-04-13 01:10:05.422]
+04-13 01:10:05.446 21139 21276 D ar_activity: [--- anchor: onUpdate: resolveHostedAnchor: pending resolve--- time=2023-04-13 01:10:05.444]
+04-13 01:10:05.447 21139 21276 D ar_activity: [resolveHostedAnchor: TASK_IN_PROGRESS time=2023-04-13 01:10:05.447]
+04-13 01:10:05.467 21139 21276 D ar_activity: [--- anchor: onUpdate: resolveHostedAnchor: pending resolve--- time=2023-04-13 01:10:05.467]
+04-13 01:10:05.467 21139 21276 D ar_activity: [resolveHostedAnchor: TASK_IN_PROGRESS time=2023-04-13 01:10:05.467]
+04-13 01:10:05.489 21139 21276 D ar_activity: [--- anchor: onUpdate: resolveHostedAnchor: pending resolve--- time=2023-04-13 01:10:05.488]
+04-13 01:10:05.489 21139 21276 D ar_activity: [resolveHostedAnchor: TASK_IN_PROGRESS time=2023-04-13 01:10:05.489]
+04-13 01:10:05.508 21139 21276 D ar_activity: [--- anchor: onUpdate: resolveHostedAnchor: pending resolve--- time=2023-04-13 01:10:05.507]
+04-13 01:10:05.508 21139 21276 D ar_activity: [resolveHostedAnchor: TASK_IN_PROGRESS time=2023-04-13 01:10:05.508]
+04-13 01:10:05.526 21139 21276 D ar_activity: [--- anchor: onUpdate: resolveHostedAnchor: pending resolve--- time=2023-04-13 01:10:05.526]
+04-13 01:10:05.526 21139 21276 D ar_activity: [resolveHostedAnchor: TASK_IN_PROGRESS time=2023-04-13 01:10:05.526]
+04-13 01:10:05.545 21139 21276 D ar_activity: [--- anchor: onUpdate: resolveHostedAnchor: pending resolve--- time=2023-04-13 01:10:05.545]
+04-13 01:10:05.546 21139 21276 D ar_activity: [resolveHostedAnchor: TASK_IN_PROGRESS time=2023-04-13 01:10:05.546]
+04-13 01:10:05.566 21139 21276 D ar_activity: [--- anchor: onUpdate: resolveHostedAnchor: pending resolve--- time=2023-04-13 01:10:05.565]
+04-13 01:10:05.566 21139 21276 D ar_activity: [resolveHostedAnchor: TASK_IN_PROGRESS time=2023-04-13 01:10:05.566]
+04-13 01:10:05.590 21139 21276 D ar_activity: [--- anchor: onUpdate: resolveHostedAnchor: pending resolve--- time=2023-04-13 01:10:05.590]
+04-13 01:10:05.591 21139 21276 D ar_activity: [resolveHostedAnchor: TASK_IN_PROGRESS time=2023-04-13 01:10:05.590]
+04-13 01:10:05.609 21139 21276 D ar_activity: [--- anchor: onUpdate: resolveHostedAnchor: pending resolve--- time=2023-04-13 01:10:05.609]
+04-13 01:10:05.609 21139 21276 D ar_activity: [resolveHostedAnchor: TASK_IN_PROGRESS time=2023-04-13 01:10:05.609]
+04-13 01:10:05.628 21139 21276 D ar_activity: [--- anchor: onUpdate: resolveHostedAnchor: pending resolve--- time=2023-04-13 01:10:05.628]
+04-13 01:10:05.628 21139 21276 D ar_activity: [resolveHostedAnchor: TASK_IN_PROGRESS time=2023-04-13 01:10:05.628]
+04-13 01:10:05.647 21139 21276 D ar_activity: [--- anchor: onUpdate: resolveHostedAnchor: pending resolve--- time=2023-04-13 01:10:05.647]
+04-13 01:10:05.647 21139 21276 D ar_activity: [resolveHostedAnchor: TASK_IN_PROGRESS time=2023-04-13 01:10:05.647]
+04-13 01:10:05.667 21139 21276 D ar_activity: [--- anchor: onUpdate: resolveHostedAnchor: pending resolve--- time=2023-04-13 01:10:05.667]
+04-13 01:10:05.667 21139 21276 D ar_activity: [resolveHostedAnchor: TASK_IN_PROGRESS time=2023-04-13 01:10:05.667]
+04-13 01:10:05.690 21139 21276 D ar_activity: [--- anchor: onUpdate: resolveHostedAnchor: pending resolve--- time=2023-04-13 01:10:05.690]
+04-13 01:10:05.690 21139 21276 D ar_activity: [resolveHostedAnchor: TASK_IN_PROGRESS time=2023-04-13 01:10:05.690]
+04-13 01:10:05.712 21139 21276 D ar_activity: [--- anchor: onUpdate: resolveHostedAnchor: pending resolve--- time=2023-04-13 01:10:05.711]
+04-13 01:10:05.712 21139 21276 D ar_activity: [resolveHostedAnchor: TASK_IN_PROGRESS time=2023-04-13 01:10:05.712]
+04-13 01:10:05.735 21139 21276 D ar_activity: [--- anchor: onUpdate: resolveHostedAnchor: pending resolve--- time=2023-04-13 01:10:05.735]
+04-13 01:10:05.735 21139 21276 D ar_activity: [resolveHostedAnchor: SUCCESS time=2023-04-13 01:10:05.735]
+04-13 01:10:05.741 21139 21139 D ar_activity: SYNCED: 2023-04-13 01:10:05.741
+04-13 01:10:05.744 21139 21276 D ar_activity: [[2d] after update lines time=2023-04-13 01:10:05.744]
+04-13 01:10:15.975 21139 21139 D ar_activity: [[1a start] touch screen time=2023-04-13 01:10:15.974]
+04-13 01:10:15.989 21139 21276 D ar_activity: addStroke at 2023-04-13 01:10:15.989
+04-13 01:10:15.995 21139 21276 D ar_activity: stroke (id: -NSt0Mup92Ayqv3FBsRw) was added at 2023-04-13 01:10:15.994
+04-13 01:10:15.997 21139 21276 D ar_activity: [[1b start] setFirebaseValue stroke id=-NSt0Mup92Ayqv3FBsRw time=2023-04-13 01:10:15.997]
+04-13 01:10:16.004 21139 21276 D ar_activity: [TRACKING TransformPointToPose time=2023-04-13 01:10:16.004]
+04-13 01:10:16.008 21139 21139 D ar_activity: [[2a end - 2d start] onChildAdded stroke id=-NSt0Mup92Ayqv3FBsRw time=2023-04-13 01:10:16.008]
+04-13 01:10:16.008 21139 21276 D ar_activity: [TRACKING TransformPointToPose time=2023-04-13 01:10:16.007]
+04-13 01:10:16.009 21139 21276 D ar_activity: send stroke to firebase, id=-NSt0Mup92Ayqv3FBsRw
+04-13 01:10:16.010 21139 21276 D ar_activity: [[2d] after update lines time=2023-04-13 01:10:16.009]
+04-13 01:10:16.029 21139 21276 D ar_activity: [TRACKING TransformPointToPose time=2023-04-13 01:10:16.029]
+04-13 01:10:16.030 21139 21276 D ar_activity: [TRACKING TransformPointToPose time=2023-04-13 01:10:16.030]
+04-13 01:10:16.030 21139 21276 D ar_activity: send stroke to firebase, id=-NSt0Mup92Ayqv3FBsRw
+04-13 01:10:16.030 21139 21276 D ar_activity: [[2d] after update lines time=2023-04-13 01:10:16.030]
+04-13 01:10:16.050 21139 21276 D ar_activity: [TRACKING TransformPointToPose time=2023-04-13 01:10:16.050]
+04-13 01:10:16.050 21139 21276 D ar_activity: send stroke to firebase, id=-NSt0Mup92Ayqv3FBsRw
+04-13 01:10:16.050 21139 21276 D ar_activity: [[2d] after update lines time=2023-04-13 01:10:16.050]
+04-13 01:10:16.070 21139 21276 D ar_activity: [TRACKING TransformPointToPose time=2023-04-13 01:10:16.070]
+04-13 01:10:16.070 21139 21276 D ar_activity: send stroke to firebase, id=-NSt0Mup92Ayqv3FBsRw
+04-13 01:10:16.071 21139 21276 D ar_activity: [[2d] after update lines time=2023-04-13 01:10:16.071]
+04-13 01:10:16.074 21139 21139 D ar_activity: [[1b start] setFirebaseValue stroke id=-NSt0Mup92Ayqv3FBsRw time=2023-04-13 01:10:16.073]
+04-13 01:10:16.084 21139 21139 D ar_activity: [[2a end - 2d start] onChildChanged stroke id=-NSt0Mup92Ayqv3FBsRw time=2023-04-13 01:10:16.084]
+04-13 01:10:16.096 21139 21276 D ar_activity: [TRACKING TransformPointToPose time=2023-04-13 01:10:16.094]
+04-13 01:10:16.096 21139 21276 D ar_activity: [TRACKING TransformPointToPose time=2023-04-13 01:10:16.096]
+04-13 01:10:16.097 21139 21276 D ar_activity: send stroke to firebase, id=-NSt0Mup92Ayqv3FBsRw
+04-13 01:10:16.098 21139 21276 D ar_activity: [[2d] after update lines time=2023-04-13 01:10:16.097]

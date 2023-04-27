@@ -1,7 +1,6 @@
 venv
 04*/
 output/
+output.csv
 *.zip
 .idea/
-output.csv
-datasets/
