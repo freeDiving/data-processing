@@ -212,18 +212,7 @@ def prepare_resolver_app_moments(resolver_app_log):
                     action_to='resolver',
                 ))
                 continue
-    # for each receive point moment, find the nearest moment of finishing the rendering
-    recv_point_moment_that_waits_for_finish_moment = None
-    res = []
-    for moment in moments:
-        if recv_point_moment_that_waits_for_finish_moment is None and moment.name == 'receive point updates':
-            recv_point_moment_that_waits_for_finish_moment = moment
-            res.append(moment)
-            continue
-        if recv_point_moment_that_waits_for_finish_moment is not None and moment.name == 'finish rendering':
-            recv_point_moment_that_waits_for_finish_moment = None
-            res.append(moment)
-    return res
+    return moments
 
 
 def prepare_resolver_pcap_moments(
@@ -400,21 +389,58 @@ def output_phases(timeline: List[Moment], output_path: str):
     print('output phases to {}'.format(output_path))
 
 
+def output_send_pkt_sequences(timeline: List[Moment], output_path: str):
+    found_start = False
+    found_user_touch_event = False
+    with open(output_path, 'w') as f:
+        f.write('time,pkt_size,src_ip,dst_ip\n')
+        for moment in timeline:
+            if not found_start:
+                if not found_user_touch_event and moment.name == 'user touches screen':
+                    found_user_touch_event = True
+                if found_user_touch_event and moment.name == 'add a stroke':
+                    found_start = True
+                continue
+
+            if moment.source == 'host' and moment.name == 'send data pkt to cloud':
+                f.write('{time},{pkt_size},{src_ip},{dst_ip}\n'.format(
+                    time=moment.time,
+                    pkt_size=moment.metadata['size'],
+                    src_ip=moment.metadata['src_ip'],
+                    dst_ip=moment.metadata['dst_ip'],
+                ))
+    print('output send packet sequences to {}'.format(output_path))
+
+
 if __name__ == '__main__':
-    host_dirs = glob.glob(input_path('./datasets/*/host/*'))
-    # host_dirs = glob.glob(input_path('datasets/wifi-static-line/host/*'))
+    # host_dirs = glob.glob(input_path('./datasets/*/host/*'))
+    # output_dirs = glob.glob(input_path('./datasets/*/output'))
+    host_dirs = glob.glob(input_path('datasets/5g-host_move-line/host/*'))
+    # output_dirs = [
+    #     input_path('./datasets/5g-static-line/output'),
+    # ]
     # host_dirs = [
-    #     input_path('./datasets/5g-static-line/host/0407-run10')
+    #     input_path('./datasets/5g-host_move-line/host/0421-5gml-run1'),
     # ]
 
+    # for output_path in output_dirs:
+    #     for filename in os.listdir(output_path):
+    #         filepath = os.path.join(output_path, filename)
+    #         try:
+    #             if os.path.isfile(filepath):
+    #                 os.remove(filepath)
+    #         except Exception as e:
+    #             print(f"Error while deleting file: {filepath} ({e})")
+
     for host_path in host_dirs:
-        resolver_path = host_path.replace('host', 'resolver')
+        resolver_path = host_path.replace('/host/', '/resolver/')
         run_name = host_path.split('/')[-1]
         app_log = 'static_log.logcat'
         pcap = 'capture.pcap'
         output_path = '/'.join(host_path.split('/')[:-2]) + '/output'
         if not os.path.exists(output_path):
             os.mkdir(output_path)
+
         try:
             timeline = prepare_timeline(
                 host_app_log=input_path(host_path, app_log),
@@ -425,6 +451,8 @@ if __name__ == '__main__':
             output_timeline(timeline, '{prefix}/{run}_timeline.csv'.format(prefix=output_path, run=run_name))
             output_phases(timeline, '{prefix}/{run}_phases.csv'.format(prefix=output_path, run=run_name))
             # output_sequences(timeline, '{prefix}/{run}_sequences.txt'.format(prefix=output_path, run=run_name))
+            # output_send_pkt_sequences(timeline,
+            #                           '{prefix}/{run}_send_pkt_sequences.csv'.format(prefix=output_path, run=run_name))
         except Exception as e:
             print('run {run_name} failed'.format(run_name=run_name))
             print(e)
