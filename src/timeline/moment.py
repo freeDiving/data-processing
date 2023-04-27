@@ -1,3 +1,4 @@
+import unittest
 from datetime import datetime
 from typing import Any, Dict, List
 import pyshark
@@ -239,6 +240,14 @@ def prepare_resolver_pcap_moments(
 
 
 def prepare_moment_data(host_app_log, resolver_app_log, host_pcap, resolver_pcap) -> Dict[str, List[Moment]]:
+    """
+    Filter out moments from logs by regexp matching and pcap by pyshark.
+    :param host_app_log:
+    :param resolver_app_log:
+    :param host_pcap:
+    :param resolver_pcap:
+    :return:
+    """
     # host app moments
     host_app_moments = prepare_host_app_moments(host_app_log)
     first_moment_touch_screen = host_app_moments[0]
@@ -265,3 +274,28 @@ def prepare_moment_data(host_app_log, resolver_app_log, host_pcap, resolver_pcap
         'host_pcap': host_pcap_moments['moments'],
         'resolver_pcap': resolver_pcap_moments['moments'],
     }
+
+
+class ProcessAppLogUnitTest(unittest.TestCase):
+    def test_extract_timestamp(self):
+        line = '04-07 15:34:34.421 10456 10592 D ar_activity: [Update ARCore frame time=2023-04-07 15:34:34.421]'
+        self.assertEqual('2023-04-07 15:34:34.421', extract_timestamp(line, year='2023'))
+
+    def test_match_prefix(self):
+        line = '04-07 15:16:47.171  6297  6297 D ar_activity: [[1a start] touch screen time=2023-04-07 15:16:47.171]'
+        self.assertEqual(True, has_prefix(line, r'\[\[1a start\] touch screen'))
+
+        line = '04-07 15:16:47.171  6297  6297 D ar_activity: [[1b end] time=2023-04-07 15:16:47.171]'
+        self.assertEqual(False, has_prefix(line, r'\[\[1a start\]'))
+
+        line = '04-07 15:16:47.408 11056 11213 D ar_activity: [[2d] after update lines time=2023-04-07 15:16:47.407]'
+        self.assertEqual(True, has_prefix(line, r'\[\[2d\]'))
+
+        line = '04-07 15:34:36.196 10456 10592 D ar_activity: [[2d end] stroke time=2023-04-07 15:34:36.196]'
+        self.assertEqual(True, has_prefix(line, r'\[\[2d end\]'))
+
+        line = '04-07 15:35:34.304 10854 10854 D ar_activity: [[2a end - 2d start] onChildChanged stroke id=-NSSCsksd3t6Qrxa0fqY time=2023-04-07 15:35:34.303]'
+        self.assertEqual(True, has_prefix(line, r'\[\[2a end - 2d start\] onChildChanged'))
+
+        line = '04-07 15:35:34.221 10854 11002 D ar_activity: stroke (id: -NSSCsksd3t6Qrxa0fqY) was added at 2023-04-07 15:35:34.221'
+        self.assertEqual(True, has_prefix(line, r'stroke \(id: .*?\) was added at'))
