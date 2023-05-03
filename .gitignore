@@ -1,6 +1,6 @@
 venv
 04*/
 output/
-output.csv
+*.csv
 *.zip
 .idea/

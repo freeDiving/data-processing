@@ -1,6 +1,6 @@
 import unittest
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Set
 import pyshark
 
 from src.constants import YEAR, DATETIME_FORMAT
@@ -197,7 +197,6 @@ def prepare_resolver_pcap_moments(
         resolver_pcap,
         start_time,
         end_time,
-        phone_ip,
         database_ip,
 ):
     pyshark_filters = []
@@ -209,6 +208,17 @@ def prepare_resolver_pcap_moments(
         '({a} || {b})'.format(a=filter_ip(database_ip, type='src'), b=filter_ip(database_ip, type='dst')))
     display_filter = ' && '.join(pyshark_filters)
     caps = pyshark.FileCapture(resolver_pcap, display_filter=display_filter)
+
+    ip_set = set()
+    resolver_phone_ip = None
+
+    for pkt in caps:
+        ip_set.add(get_ip(pkt, type='src'))
+        ip_set.add(get_ip(pkt, type='dst'))
+        # get the first pkt from database to resolver phone
+        if resolver_phone_ip is None and is_data_pkt(pkt, src=database_ip):
+            resolver_phone_ip = get_ip(pkt, type='dst')
+
     moments = []
     for pkt in caps:
         if is_data_pkt(pkt, min_size=100):
@@ -236,10 +246,12 @@ def prepare_resolver_pcap_moments(
     caps.close()
     return {
         'moments': moments,
+        'ip_set': ip_set,
+        'phone_ip': resolver_phone_ip,
     }
 
 
-def prepare_moment_data(host_app_log, resolver_app_log, host_pcap, resolver_pcap) -> Dict[str, List[Moment]]:
+def prepare_moment_data(host_app_log, resolver_app_log, host_pcap, resolver_pcap) -> Dict[str, Any]:
     """
     Filter out moments from logs by regexp matching and pcap by pyshark.
     :param host_app_log:
@@ -265,7 +277,6 @@ def prepare_moment_data(host_app_log, resolver_app_log, host_pcap, resolver_pcap
         resolver_pcap,
         start_time=first_moment_touch_screen.time,
         end_time=last_moment_finish_rendering.time,
-        phone_ip=host_pcap_moments['phone_ip'],
         database_ip=host_pcap_moments['database_ip'],
     )
     return {
@@ -273,6 +284,65 @@ def prepare_moment_data(host_app_log, resolver_app_log, host_pcap, resolver_pcap
         'resolver_app': resolver_app_moments,
         'host_pcap': host_pcap_moments['moments'],
         'resolver_pcap': resolver_pcap_moments['moments'],
+        'e2e_start_time': first_moment_touch_screen.time,
+        'e2e_end_time': last_moment_finish_rendering.time,
+        'ip_set': host_pcap_moments['ip_set'].union(resolver_pcap_moments['ip_set']),
+        'host_phone_ip': host_pcap_moments['phone_ip'],
+        'resolver_phone_ip': resolver_pcap_moments['phone_ip'],
+        'database_ip': host_pcap_moments['database_ip'],
+    }
+
+
+def prepare_moment_for_specified_ip_list(
+        pcap_path: str,
+        source: str,
+        start_time: datetime,
+        end_time: datetime,
+        include_ip_set: Set[str] = None,
+        exclude_ip_set: Set[str] = None,
+):
+    pyshark_filters = []
+    pyshark_filters.append('frame.time >= "{st}"'.format(st=start_time.strftime(DATETIME_FORMAT)))
+    pyshark_filters.append('frame.time <= "{et}"'.format(et=end_time.strftime(DATETIME_FORMAT)))
+    pyshark_filters.append('tcp')
+    display_filter = ' && '.join(pyshark_filters)
+    cap_e2e = pyshark.FileCapture(pcap_path, display_filter=display_filter)
+
+    moments = []
+    for pkt in cap_e2e:
+        src_ip = get_ip(pkt, type='src')
+        dst_ip = get_ip(pkt, type='dst')
+
+        if exclude_ip_set:
+            if (src_ip in exclude_ip_set) or (dst_ip in exclude_ip_set):
+                continue
+        if include_ip_set:
+            if (src_ip not in include_ip_set) and (dst_ip not in include_ip_set):
+                continue
+
+        if is_data_pkt(pkt, min_size=100):
+            moments.append(Moment(
+                source=source,
+                name='TCP data pkt',
+                time=get_timestamp(pkt),
+                raw_data=pkt,
+                metadata=create_essential_metadata(pkt, type='data'),
+                action_from=src_ip,
+                action_to=dst_ip,
+            ))
+        elif is_ack_pkt(pkt):
+            moments.append(Moment(
+                source=source,
+                name='TCP ack pkt',
+                time=get_timestamp(pkt),
+                raw_data=pkt,
+                metadata=create_essential_metadata(pkt, type='ack'),
+                action_from=src_ip,
+                action_to=dst_ip,
+            ))
+    cap_e2e.close()
+    return {
+        'moments': moments,
     }
 
 

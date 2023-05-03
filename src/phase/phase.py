@@ -1,6 +1,9 @@
 import unittest
+from collections import deque
 from datetime import datetime
 from typing import List, Dict
+
+from src.timeline.moment import Moment
 
 
 class StateMachine:
@@ -88,10 +91,40 @@ class Phase:
 
     def output(self):
         res = {
-            **self.state_timeline
+            **self.state_timeline,
         }
         del res['resolver: done']
         return res
+
+
+def prepare_phases(timeline: List[Moment]):
+    phases = []
+    queue = deque()
+    found_start = False
+    user_touch_events_stack = []
+    for moment in timeline:
+        if not found_start:
+            if not user_touch_events_stack and moment.name == 'user touches screen':
+                user_touch_events_stack.append(moment)
+            if user_touch_events_stack and moment.name == 'add a stroke':
+                found_start = True
+            continue
+
+        is_handled = False
+        event = '{}: {}'.format(moment.source, moment.name)
+        for phase in queue:
+            if phase.is_next_valid_event(event):
+                phase.transit(event, moment.time)
+                if phase.is_finished():
+                    phases.append(phase.output())
+                    queue.popleft()
+                is_handled = True
+                break
+        if not is_handled:
+            if moment.name == 'user touches screen' or moment.name == 'add points to stroke':
+                phase = Phase(moment.time)
+                queue.append(phase)
+    return phases
 
 
 class MyTestCase(unittest.TestCase):

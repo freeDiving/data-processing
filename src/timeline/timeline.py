@@ -21,4 +21,7 @@ def prepare_timeline(host_app_log, resolver_app_log, host_pcap, resolver_pcap):
     timeline.extend(moment_map.get('resolver_pcap'))
     # sort moments by time
     timeline.sort(key=lambda x: x.time)
-    return timeline
+    return {
+        'timeline': timeline,
+        'moment_map': moment_map,
+    }
