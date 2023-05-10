@@ -2,7 +2,7 @@ import glob
 import json
 import os
 from datetime import datetime
-from typing import List, Set, Dict, Any
+from typing import List, Dict, Any
 
 from src.phase.phase import prepare_phases
 from src.timeline.moment import Moment, prepare_moment_for_specified_ip_list, prepare_moment_data
@@ -17,7 +17,7 @@ def input_path(*file_path) -> str:
 
 def output_path(file_path: str) -> str:
     OUTPUT_DIR = 'output'
-    return os.path.join(ROOT_PATH, '..', OUTPUT_DIR, file_path)
+    return os.path.join(ROOT_PATH, '', OUTPUT_DIR, file_path)
 
 
 def output_sequences(timeline: List[Moment], output_path: str):
@@ -207,7 +207,7 @@ def main():
     # input_path('../datasets/5g-resolver_move-line/host/run4'),
     # input_path('../datasets/5g-resolver_move-line/host/run5'),
     # ]
-    host_dirs = glob.glob(input_path('../datasets/*/host/*'))
+    host_dirs = glob.glob(input_path('./datasets/*/host/*'))
     for index, host_path in enumerate(host_dirs):
         resolver_path = host_path.replace('/host/', '/resolver/')
         exp_name = host_path.split('/')[-3]
@@ -267,3 +267,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+    print('done')
