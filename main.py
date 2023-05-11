@@ -2,7 +2,7 @@ import glob
 import json
 import os
 from datetime import datetime
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Set
 
 from src.phase.phase import prepare_phases
 from src.timeline.moment import Moment, prepare_moment_for_specified_ip_list, prepare_moment_data
@@ -108,19 +108,21 @@ def prepare_other_ip_summary_and_moments(
         e2e_start_time: datetime,
         e2e_end_time: datetime,
         database_ip: str,
+        host_arcore_ip_set: Set[str],
+        resolver_arcore_ip_set: Set[str]
 ):
     transmission_summation_map = {}
     host_moment_res = prepare_moment_for_specified_ip_list(
         pcap_path=host_pcap,
         source='host',
-        exclude_ip_set={database_ip},
+        include_ip_set=host_arcore_ip_set,
         start_time=e2e_start_time,
         end_time=e2e_end_time,
     )
     resolver_moment_res = prepare_moment_for_specified_ip_list(
         pcap_path=resolver_pcap,
         source='resolver',
-        exclude_ip_set={database_ip},
+        include_ip_set=resolver_arcore_ip_set,
         start_time=e2e_start_time,
         end_time=e2e_end_time,
     )
@@ -207,7 +209,23 @@ def main():
     # input_path('../datasets/5g-resolver_move-line/host/run4'),
     # input_path('../datasets/5g-resolver_move-line/host/run5'),
     # ]
-    host_dirs = glob.glob(input_path('./datasets/*/host/*'))
+    # host_dirs = [input_path('datasets/lte-static-point/host/run5')]  # disconnect from all other servers
+    host_dirs = [input_path('datasets/5g-static-line/host/run1'),
+                 input_path('datasets/5g-static-line/host/run2'),
+                 input_path('datasets/5g-static-line/host/run3'),
+                 input_path('datasets/5g-static-line/host/run4'),
+                 input_path('datasets/5g-static-line/host/run5'),
+                 input_path('datasets/5g-resolver_move-line/host/run1'),
+                 input_path('datasets/5g-resolver_move-line/host/run2'),
+                 input_path('datasets/5g-resolver_move-line/host/run3'),
+                 input_path('datasets/5g-resolver_move-line/host/run4'),
+                 input_path('datasets/5g-resolver_move-line/host/run5'),
+                 input_path('datasets/5g-host_move-line/host/run1'),
+                 input_path('datasets/5g-host_move-line/host/run2'),
+                 input_path('datasets/5g-host_move-line/host/run3'),
+                 input_path('datasets/5g-host_move-line/host/run4'),
+                 input_path('datasets/5g-host_move-line/host/run5')]
+    #host_dirs = glob.glob(input_path('./datasets/*/host/*'))
     for index, host_path in enumerate(host_dirs):
         resolver_path = host_path.replace('/host/', '/resolver/')
         exp_name = host_path.split('/')[-3]
@@ -240,14 +258,15 @@ def main():
             output_send_pkt_sequences(timeline,
                                       '{prefix}/send_pkt_sequences.csv'.format(prefix=_output_path))
 
-            # collect data of ips that is not the ip of firebase database
-            # including ips of arcore
+            # collect data that involves ARCore servers.
             res_of_other_ip = prepare_other_ip_summary_and_moments(
                 host_pcap=input_path(host_path, pcap),
                 resolver_pcap=input_path(resolver_path, pcap),
                 e2e_start_time=moment_map.get('e2e_start_time'),
                 e2e_end_time=moment_map.get('e2e_end_time'),
                 database_ip=moment_map.get('database_ip'),
+                host_arcore_ip_set=moment_map.get('host_arcore_ip_set'),
+                resolver_arcore_ip_set = moment_map.get('resolver_arcore_ip_set')
             )
             output_other_ip_summary_and_timeline(
                 res_of_other_ip,
@@ -257,7 +276,7 @@ def main():
             timeline.extend(res_of_other_ip.get('moments'))
             timeline.sort(key=lambda x: x.time)
             output_timeline(timeline, '{prefix}/timeline.csv'.format(prefix=_output_path))
-
+            print("\n")
 
         except Exception as e:
             print('run {run_name} failed'.format(run_name=run_name))

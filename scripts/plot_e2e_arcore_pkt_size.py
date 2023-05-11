@@ -3,7 +3,7 @@ from typing import List, Dict
 
 import matplotlib.pyplot as plt
 
-from src.main import prepare_other_ip_summary_and_moments
+from main import prepare_other_ip_summary_and_moments
 from src.phase.phase import prepare_phases
 from src.timeline.moment import prepare_moment_data
 from src.utils.time import diff_sec
@@ -119,6 +119,8 @@ def main():
             e2e_start_time=moment_map.get('e2e_start_time'),
             e2e_end_time=moment_map.get('e2e_end_time'),
             database_ip=moment_map.get('database_ip'),
+            host_arcore_ip_set=moment_map.get('host_arcore_ip_set'),
+            resolver_arcore_ip_set=moment_map.get('resolver_arcore_ip_set')
         )
         timeline.extend(res_of_other_ip.get('moments'))
         timeline.sort(key=lambda x: x.time)

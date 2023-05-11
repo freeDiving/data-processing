@@ -176,7 +176,10 @@ def main():
             e2e_start_time=moment_map.get('e2e_start_time'),
             e2e_end_time=moment_map.get('e2e_end_time'),
             database_ip=moment_map.get('database_ip'),
+            host_arcore_ip_set=moment_map.get('host_arcore_ip_set'),
+            resolver_arcore_ip_set=moment_map.get('resolver_arcore_ip_set')
         )
+
         #  time ticks of interaction with ips other than Firebase database
         other_ip_moments = res_of_other_ip.get('moments')
 
