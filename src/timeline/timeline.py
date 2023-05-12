@@ -3,13 +3,13 @@ from src.timeline.moment import parse_log_and_pcap
 
 def get_timeline(info_map):
     timeline = []
-    host_app_info_map = info_map.get("host")
-    resolver_app_info_map = info_map.get("resolver")
+    host_runtime_info_map = info_map.get("host")
+    resolver_runtime_info_map = info_map.get("resolver")
     # Combine all moments
-    timeline.extend(host_app_info_map.log_moments)
-    timeline.extend(resolver_app_info_map.log_moments)
-    timeline.extend(host_app_info_map.pcap_moments)
-    timeline.extend(resolver_app_info_map.pcap_moments)
+    timeline.extend(host_runtime_info_map.log_drawing_moments)
+    timeline.extend(resolver_runtime_info_map.log_drawing_moments)
+    timeline.extend(host_runtime_info_map.pcap_moments)
+    timeline.extend(resolver_runtime_info_map.pcap_moments)
     # sort moments by time
     timeline.sort(key=lambda x: x.time)
 
