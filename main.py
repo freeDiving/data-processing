@@ -5,11 +5,11 @@ from datetime import datetime
 from typing import List, Dict, Any, Set
 
 from src.phase.phase import prepare_phases
-from src.timeline.moment import Moment, prepare_moment_for_specified_ip_list, prepare_moment_data
+from src.timeline.moment import Moment, prepare_moment_for_specified_ip_list, parse_log_and_pcap
+from src.timeline.timeline import get_timeline
 from src.utils.time import diff_sec
 
 ROOT_PATH = os.path.abspath(os.path.dirname(__file__))
-
 
 def input_path(*file_path) -> str:
     return os.path.join(ROOT_PATH, *file_path)
@@ -237,7 +237,8 @@ def main():
         if not os.path.exists(_output_path):
             os.makedirs(_output_path)
         try:
-            moment_map = prepare_moment_data(
+            # Get all parsed information from the host and the resolver.
+            all_info_map = parse_log_and_pcap(
                 host_app_log=input_path(host_path, app_log),
                 resolver_app_log=input_path(resolver_path, app_log),
                 host_pcap=input_path(host_path, pcap),
@@ -245,13 +246,7 @@ def main():
             )
 
             # combine all moments
-            timeline = []
-            timeline.extend(moment_map.get('host_app'))
-            timeline.extend(moment_map.get('resolver_app'))
-            timeline.extend(moment_map.get('host_pcap'))
-            timeline.extend(moment_map.get('resolver_pcap'))
-            # sort moments by time
-            timeline.sort(key=lambda x: x.time)
+            timeline = get_timeline(all_info_map)
 
             # output_sequences(timeline, '{prefix}/sequences.txt'.format(prefix=_output_path))
             output_phases(timeline, '{prefix}/phases.csv'.format(prefix=_output_path))
@@ -262,11 +257,11 @@ def main():
             res_of_other_ip = prepare_other_ip_summary_and_moments(
                 host_pcap=input_path(host_path, pcap),
                 resolver_pcap=input_path(resolver_path, pcap),
-                e2e_start_time=moment_map.get('e2e_start_time'),
-                e2e_end_time=moment_map.get('e2e_end_time'),
-                database_ip=moment_map.get('database_ip'),
-                host_arcore_ip_set=moment_map.get('host_arcore_ip_set'),
-                resolver_arcore_ip_set = moment_map.get('resolver_arcore_ip_set')
+                e2e_start_time=all_info_map.get('e2e_start_time'),
+                e2e_end_time=all_info_map.get('e2e_end_time'),
+                database_ip=all_info_map.get('database_ip'),
+                host_arcore_ip_set=all_info_map.get("host").arcore_ip_set,
+                resolver_arcore_ip_set=all_info_map.get("resolver").arcore_ip_set
             )
             output_other_ip_summary_and_timeline(
                 res_of_other_ip,
@@ -276,7 +271,7 @@ def main():
             timeline.extend(res_of_other_ip.get('moments'))
             timeline.sort(key=lambda x: x.time)
             output_timeline(timeline, '{prefix}/timeline.csv'.format(prefix=_output_path))
-            print("\n")
+            print()
 
         except Exception as e:
             print('run {run_name} failed'.format(run_name=run_name))

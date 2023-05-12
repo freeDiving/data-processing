@@ -1,8 +1,6 @@
-import logging
-import re
 import unittest
 from datetime import datetime
-from typing import Any, Dict, List, Set
+from typing import Any, Dict, Set
 import pyshark
 
 from src.constants import YEAR, DATETIME_FORMAT
@@ -27,6 +25,25 @@ class Moment:
         self.raw_data = kwargs.get("raw_data") or None
 
 
+class AppInfo:
+    log_moments: list[Moment]
+    pcap_moments: list[Moment]
+    sync_start_time: datetime
+    sync_end_time: datetime
+    phone_ip: str
+    arcore_ip_set: set
+    ip_ver_is_six: bool
+
+    def __init__(self, **kwargs):
+        self.log_moments = kwargs.get("log_moments") or []
+        self.pcap_moments = kwargs.get("pcap_moments") or []
+        self.sync_start_time = kwargs.get("sync_start_time")
+        self.sync_end_time = kwargs.get("action_to")
+        self.phone_ip = kwargs.get("phone_ip")
+        self.arcore_ip_set = kwargs.get("arcore_ip_set") or set()
+        self.ip_ver_is_six = kwargs.get("ip_ver_is_six")
+
+
 def create_essential_metadata(pkt, type: str):
     src_ip = get_ip(pkt, type='src')
     dst_ip = get_ip(pkt, type='dst')
@@ -34,7 +51,7 @@ def create_essential_metadata(pkt, type: str):
     return {'src_ip': src_ip, 'dst_ip': dst_ip, 'type': type, 'size': pkt_size}
 
 
-def prepare_host_app_info(host_app_log):
+def prepare_host_log_info(host_app_log):
     """
     Parse each line of the host's application log, and return necessary information.
     Args:
@@ -117,7 +134,7 @@ def prepare_host_app_info(host_app_log):
     return {"moments": moments, 'sync_start_time': sync_start_time, 'sync_end_time': sync_end_time}
 
 
-def prepare_host_pcap_moments(
+def prepare_host_pcap_info(
         host_pcap,
         start_time,
         end_time,
@@ -186,7 +203,7 @@ def prepare_host_pcap_moments(
     }
 
 
-def prepare_resolver_app_info(resolver_app_log):
+def prepare_resolver_log_info(resolver_app_log):
     """
     Read each lines of the resolver's log.
     Check each line to see if it contains "onLineAdded" or "onLineChanged" keyword.
@@ -258,7 +275,7 @@ def prepare_resolver_app_info(resolver_app_log):
     }
 
 
-def prepare_resolver_pcap_moments(
+def prepare_resolver_pcap_info(
         resolver_pcap,
         start_time,
         end_time,
@@ -315,25 +332,26 @@ def prepare_resolver_pcap_moments(
     }
 
 
-def is_ip_version_six(host_pcap_path) -> bool:
+def is_ip_version_six(pcap_path) -> bool:
     """
     Check if the IP used by Just-a-Line is IPv6 or not.
     This is done by checking all the syn packets. If we don't have any IPv6 SYN,
     then the app only used IPv4 (This happens in WiFi environment).
     Otherwise, it uses IPv6 (This happens in cellular environment).
     Args:
-        host_pcap_path: path of the pcap file.
+        pcap_path: path of the pcap file.
 
     Returns:
         ip_version_is_six: a boolean indicates if the IP version is 6.
     """
-    syn_pkts = pyshark.FileCapture(host_pcap_path, display_filter='tcp.flags.syn==1 && ipv6')
+    syn_pkts = pyshark.FileCapture(pcap_path, display_filter='tcp.flags.syn==1 && ipv6')
     for _ in syn_pkts:
         return True
     return False
 
 
-def get_arcore_addresses(pcap_path, sync_start_ts, sync_end_ts, last_rendering_ts, phone_ip, database_ip):
+def get_arcore_addresses(pcap_path, sync_start_ts, sync_end_ts, last_rendering_ts, phone_ip, database_ip,
+                         ip_ver_is_six):
     """
     Find arcore servers used by the host/resolver.
     Args:
@@ -342,17 +360,17 @@ def get_arcore_addresses(pcap_path, sync_start_ts, sync_end_ts, last_rendering_t
         sync_end_ts: synchronization end timestamp.
         last_rendering_ts: timestamp of the last 2d phase.
         phone_ip: IP of the phone.
+        database_ip: IP of firebase.
+        ip_ver_is_six: is IP version 6?
     Returns:
         A set containing ARCore servers.
     """
-    # Check if the host used IPv6, and set the firebase regex pattern we are looking for.
-    ip_version_is_six = is_ip_version_six(pcap_path)
 
     # Apply a filter to get SYN-ACK packets between the start and the end of synchronization.
     syn_ack_filter = "tcp.flags.syn == 1 && tcp.flags.ack == 1"
     sync_start_ts_filter = 'frame.time >= "{st}"'.format(st=sync_start_ts.strftime(DATETIME_FORMAT))
     sync_end_ts_filter = 'frame.time <= "{et}"'.format(et=sync_end_ts.strftime(DATETIME_FORMAT))
-    ip_filter = 'ipv6' if ip_version_is_six else 'ip'
+    ip_filter = 'ipv6' if ip_ver_is_six else 'ip'
     pyshark_filter = [syn_ack_filter, sync_start_ts_filter, sync_end_ts_filter, ip_filter]
     display_filter = " && ".join(pyshark_filter)
     print(display_filter)
@@ -371,8 +389,8 @@ def get_arcore_addresses(pcap_path, sync_start_ts, sync_end_ts, last_rendering_t
     # the ARCore servers.
     fin_filter = "tcp.flags.fin == 1"
     last_rendering_ts_filter = 'frame.time >= "{et}"'.format(et=last_rendering_ts.strftime(DATETIME_FORMAT))
-    src_ip_phone_filter = ('ipv6' if ip_version_is_six else 'ip') + ".src == " + phone_ip
-    exclude_database_ip_filter = ('ipv6' if ip_version_is_six else 'ip') + ".dst != " + database_ip
+    src_ip_phone_filter = ('ipv6' if ip_ver_is_six else 'ip') + ".src == " + phone_ip
+    exclude_database_ip_filter = ('ipv6' if ip_ver_is_six else 'ip') + ".dst != " + database_ip
     pyshark_filter = [fin_filter, last_rendering_ts_filter, exclude_database_ip_filter, src_ip_phone_filter]
     display_filter = " && ".join(pyshark_filter)
     fin_packets = pyshark.FileCapture(pcap_path, display_filter=display_filter)
@@ -403,9 +421,9 @@ def get_arcore_addresses(pcap_path, sync_start_ts, sync_end_ts, last_rendering_t
     return arcore_ip_set
 
 
-def prepare_moment_data(host_app_log, resolver_app_log, host_pcap, resolver_pcap) -> Dict[str, Any]:
+def parse_log_and_pcap(host_app_log, resolver_app_log, host_pcap, resolver_pcap) -> Dict[str, Any]:
     """
-    Filter out moments from logs by regexp matching and pcap by pyshark.
+    Get necessary information, including moments, from logs by regexp matching and pcap by pyshark.
     :param host_app_log: path to the host's log file.
     :param resolver_app_log: path to the resolver's log file.
     :param host_pcap: path to the host's pcap file
@@ -414,59 +432,74 @@ def prepare_moment_data(host_app_log, resolver_app_log, host_pcap, resolver_pcap
     """
 
     # host app moments
-    host_app_info_map = prepare_host_app_info(host_app_log)
-    host_app_moments = host_app_info_map['moments']
-    first_moment_touch_screen = host_app_moments[0]
+    host_log_info_map = prepare_host_log_info(host_app_log)
+    host_log_moments = host_log_info_map['moments']
+    first_moment_touch_screen = host_log_moments[0]
 
     # resolver app moments
-    resolver_app_info_map = prepare_resolver_app_info(resolver_app_log)
-    resolver_app_moments = resolver_app_info_map['moments']
-    last_moment_finish_rendering = resolver_app_moments[-1]
+    resolver_log_info_map = prepare_resolver_log_info(resolver_app_log)
+    resolver_log_moments = resolver_log_info_map['moments']
+    last_moment_finish_rendering = resolver_log_moments[-1]
 
     # host pcap trace moments, within e2e time duration
-    host_pcap_moments = prepare_host_pcap_moments(
+    host_pcap_info = prepare_host_pcap_info(
         host_pcap,
         start_time=first_moment_touch_screen.time,
         end_time=last_moment_finish_rendering.time,
     )
 
     # resolver pcap trace moments, within the e2e time frame.
-    resolver_pcap_moments = prepare_resolver_pcap_moments(
+    resolver_pcap_info = prepare_resolver_pcap_info(
         resolver_pcap,
         start_time=first_moment_touch_screen.time,
         end_time=last_moment_finish_rendering.time,
-        database_ip=host_pcap_moments['database_ip'],
+        database_ip=host_pcap_info['database_ip'],
     )
+
+    # Check if the host used IPv6, and set the firebase regex pattern we are looking for.
+    ip_version_is_six = is_ip_version_six(host_pcap)
 
     # Find ARCore IP addresses used by the host.
     host_arcore_ip_set = get_arcore_addresses(host_pcap,
-                                              host_app_info_map['sync_start_time'],
-                                              host_app_info_map['sync_end_time'],
+                                              host_log_info_map['sync_start_time'],
+                                              host_log_info_map['sync_end_time'],
                                               last_moment_finish_rendering.time,
-                                              host_pcap_moments['phone_ip'],
-                                              host_pcap_moments['database_ip'])
+                                              host_pcap_info['phone_ip'],
+                                              host_pcap_info['database_ip'],
+                                              ip_version_is_six)
 
     # Find ARCore IP addresses used by the resolver.
     resolver_arcore_ip_set = get_arcore_addresses(resolver_pcap,
-                                                  resolver_app_info_map['sync_start_time'],
-                                                  resolver_app_info_map['sync_end_time'],
+                                                  resolver_log_info_map['sync_start_time'],
+                                                  resolver_log_info_map['sync_end_time'],
                                                   last_moment_finish_rendering.time,
-                                                  resolver_pcap_moments['phone_ip'],
-                                                  host_pcap_moments['database_ip'])
+                                                  resolver_pcap_info['phone_ip'],
+                                                  host_pcap_info['database_ip'],
+                                                  ip_version_is_six)
+
+    host_app_info = AppInfo(log_moments=host_log_moments,
+                            pcap_moments=host_pcap_info['moments'],
+                            sync_start_time=host_log_info_map['sync_start_time'],
+                            sync_end_time=host_log_info_map['sync_end_time'],
+                            phone_ip=host_pcap_info['phone_ip'],
+                            arcore_ip_set=host_arcore_ip_set,
+                            ip_ver_is_six=ip_version_is_six)
+
+    resolvers_app_info = AppInfo(log_moments=resolver_log_moments,
+                                 pcap_moments=resolver_pcap_info['moments'],
+                                 sync_start_time=resolver_log_info_map['sync_start_time'],
+                                 sync_end_time=resolver_log_info_map['sync_end_time'],
+                                 phone_ip=resolver_pcap_info['phone_ip'],
+                                 arcore_ip_set=resolver_arcore_ip_set,
+                                 ip_ver_is_six=ip_version_is_six)
 
     return {
-        'host_app': host_app_moments,
-        'resolver_app': resolver_app_moments,
-        'host_pcap': host_pcap_moments['moments'],
-        'resolver_pcap': resolver_pcap_moments['moments'],
+        'host': host_app_info,
+        'resolver': resolvers_app_info,
         'e2e_start_time': first_moment_touch_screen.time,
         'e2e_end_time': last_moment_finish_rendering.time,
-        'ip_set': host_pcap_moments['ip_set'].union(resolver_pcap_moments['ip_set']),
-        'host_phone_ip': host_pcap_moments['phone_ip'],
-        'resolver_phone_ip': resolver_pcap_moments['phone_ip'],
-        'database_ip': host_pcap_moments['database_ip'],
-        'host_arcore_ip_set': host_arcore_ip_set,
-        'resolver_arcore_ip_set': resolver_arcore_ip_set,
+        'ip_set': host_pcap_info['ip_set'].union(resolver_pcap_info['ip_set']),
+        'database_ip': host_pcap_info['database_ip'],
     }
 
 

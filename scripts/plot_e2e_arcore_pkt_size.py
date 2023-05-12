@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 from main import prepare_other_ip_summary_and_moments
 from src.phase.phase import prepare_phases
 from src.timeline.moment import prepare_moment_data
+from src.timeline.timeline import get_timeline
 from src.utils.time import diff_sec
 
 ROOT_PATH = os.path.abspath(os.path.dirname(__file__))
@@ -97,30 +98,25 @@ def main():
         app_log = 'static_log.logcat'
         pcap = 'capture.pcap'
 
-        moment_map = prepare_moment_data(
+        info_map = prepare_moment_data(
             host_app_log=input_path(host_path, app_log),
             host_pcap=input_path(host_path, pcap),
             resolver_app_log=input_path(resolver_path, app_log),
             resolver_pcap=input_path(resolver_path, pcap)
         )
         # combine all moments
-        timeline = []
-        timeline.extend(moment_map.get('host_app'))
-        timeline.extend(moment_map.get('resolver_app'))
-        timeline.extend(moment_map.get('host_pcap'))
-        timeline.extend(moment_map.get('resolver_pcap'))
-        timeline.sort(key=lambda x: x.time)
+        timeline = get_timeline(info_map)
 
         phases = prepare_phases(timeline)
 
         res_of_other_ip = prepare_other_ip_summary_and_moments(
             host_pcap=input_path(host_path, pcap),
             resolver_pcap=input_path(resolver_path, pcap),
-            e2e_start_time=moment_map.get('e2e_start_time'),
-            e2e_end_time=moment_map.get('e2e_end_time'),
-            database_ip=moment_map.get('database_ip'),
-            host_arcore_ip_set=moment_map.get('host_arcore_ip_set'),
-            resolver_arcore_ip_set=moment_map.get('resolver_arcore_ip_set')
+            e2e_start_time=info_map.get('e2e_start_time'),
+            e2e_end_time=info_map.get('e2e_end_time'),
+            database_ip=info_map.get('database_ip'),
+            host_arcore_ip_set=info_map.get('host').arcore_ip_set,
+            resolver_arcore_ip_set=info_map.get('resolver').arcore_ip_set
         )
         timeline.extend(res_of_other_ip.get('moments'))
         timeline.sort(key=lambda x: x.time)
@@ -128,8 +124,8 @@ def main():
         # data_map = res_of_other_ip.get('transmission_summation_map')
         # host_map = {}
         # resolver_map = {}
-        host_phone_ip = moment_map.get('host_phone_ip')
-        resolver_phone_ip = moment_map.get('resolver_phone_ip')
+        host_phone_ip = info_map.get('host').phone_ip
+        resolver_phone_ip = info_map.get('resolver').phone_ip
 
         arcore_ip_prefix = '2607:f8b0:4006'
         host_uplink_map = {}

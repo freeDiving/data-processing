@@ -7,14 +7,16 @@ import pandas as pd
 
 from main import prepare_other_ip_summary_and_moments
 from src.phase.phase import prepare_phases
-from src.timeline.moment import prepare_moment_data
+from src.timeline.moment import parse_log_and_pcap
+from src.timeline.timeline import get_timeline
 from src.utils.time import diff_sec
 
 ROOT_PATH = os.path.abspath(os.path.dirname(__file__))
 
 
 def input_path(*file_path) -> str:
-    return os.path.join(ROOT_PATH, *file_path)
+    res = os.path.join(ROOT_PATH, *file_path)
+    return res
 
 
 def output_path(*paths: str) -> str:
@@ -150,41 +152,38 @@ def main():
         app_log = 'static_log.logcat'
         pcap = 'capture.pcap'
 
-        moment_map = prepare_moment_data(
+        info_map = parse_log_and_pcap(
             host_app_log=input_path(host_path, app_log),
             host_pcap=input_path(host_path, pcap),
             resolver_app_log=input_path(resolver_path, app_log),
             resolver_pcap=input_path(resolver_path, pcap)
         )
-        # combine all moments
-        timeline = []
-        timeline.extend(moment_map.get('host_app'))
-        timeline.extend(moment_map.get('resolver_app'))
-        timeline.extend(moment_map.get('host_pcap'))
-        timeline.extend(moment_map.get('resolver_pcap'))
-        timeline.sort(key=lambda x: x.time)
+
+        timeline = get_timeline(info_map)
 
         # phases of interaction with Firebase database
         phases = prepare_phases(timeline)
 
         # e2e-time data
         x_time, y_e2e_latency = prepare_e2e_latency_data(phases)
+        host_info = info_map["host"]
+        resolver_info = info_map["resolver"]
 
         res_of_other_ip = prepare_other_ip_summary_and_moments(
             host_pcap=input_path(host_path, pcap),
             resolver_pcap=input_path(resolver_path, pcap),
-            e2e_start_time=moment_map.get('e2e_start_time'),
-            e2e_end_time=moment_map.get('e2e_end_time'),
-            database_ip=moment_map.get('database_ip'),
-            host_arcore_ip_set=moment_map.get('host_arcore_ip_set'),
-            resolver_arcore_ip_set=moment_map.get('resolver_arcore_ip_set')
+            e2e_start_time=info_map.get('e2e_start_time'),
+            e2e_end_time=info_map.get('e2e_end_time'),
+            database_ip=info_map.get('database_ip'),
+            host_arcore_ip_set=host_info.arcore_ip_set,
+            resolver_arcore_ip_set=resolver_info.arcore_ip_set
         )
 
         #  time ticks of interaction with ips other than Firebase database
         other_ip_moments = res_of_other_ip.get('moments')
 
-        host_phone_ip = moment_map.get('host_phone_ip')
-        resolver_phone_ip = moment_map.get('resolver_phone_ip')
+        host_phone_ip = host_info.phone_ip
+        resolver_phone_ip = resolver_info.phone_ip
         arcore_ip_prefix = '2607:f8b0:4006'
 
         x_host_arcore_uplink_time = []
@@ -229,7 +228,7 @@ def main():
             y_resolver_arcore_downlink_size=y_resolver_arcore_downlink_size,
             output_file_path=output_path(output_dir, filename)
         )
-
+        print()
 
 if __name__ == '__main__':
     main()
