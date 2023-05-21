@@ -28,7 +28,7 @@ class Moment:
 class RuntimeInfo:
     log_drawing_moments: list[Moment]
     log_sync_moments: list[Moment]
-    pcap_moments: list[Moment]
+    pcap_drawing_moments: list[Moment]
     phone_ip: str
     arcore_ip_set: set
     ip_ver_is_six: bool
@@ -36,7 +36,7 @@ class RuntimeInfo:
     def __init__(self, **kwargs):
         self.log_drawing_moments = kwargs.get("log_drawing_moments") or []
         self.log_sync_moments = kwargs.get("log_sync_moments") or []
-        self.pcap_moments = kwargs.get("pcap_moments") or []
+        self.pcap_drawing_moments = kwargs.get("pcap_drawing_moments") or []
         self.first_sync_start_time = kwargs.get("first_sync_start_time")
         self.sync_end_time = kwargs.get("action_to")
         self.phone_ip = kwargs.get("phone_ip")
@@ -51,7 +51,7 @@ def create_essential_metadata(pkt, type: str):
     return {'src_ip': src_ip, 'dst_ip': dst_ip, 'type': type, 'size': pkt_size}
 
 
-def prepare_host_log_info(host_app_log):
+def parse_log(log, phone_type: str):
     """
     Parse each line of the host's application log, and return necessary information.
     Args:
@@ -60,109 +60,186 @@ def prepare_host_log_info(host_app_log):
         A map that contains a list of host moments, host's synchronization start time,
         and host's synchronization end time.
     """
+    # Host's regexp
     touch_start_regexp = lambda x: has_prefix(x, prefix=r'\[\[1a start\] touch screen')
     stroke_was_added_regexp = lambda x: has_prefix(x, prefix=r'stroke \(id: .*?\) was added at')
     add_points_to_stroke_regexp = lambda x: has_prefix(x, prefix=r'send stroke to firebase')
-    cloud_finish_processing_regexp = lambda x: has_prefix(x, prefix=r'\[\[2a end - 2d start\] onChildChanged')
+    cloud_finish_processing_regexp = lambda x: has_prefix(x, prefix=r'onComplete of doStrokeUpdate')
     sync_start_regexp = lambda x: has_prefix(x, prefix=r'SET ANCHOR')
     sync_success_regexp = lambda x: has_prefix(x, prefix=r'SYNCED')
     # sync_failed_regexp = lambda x: has_prefix(x, prefix=r'\[\[onAnchorResolutionError')
 
+    # Resolver's regexp
+    on_line_added_regexp = lambda x: has_prefix(x, prefix=r'\[\[2a end - 2d start\] onChildAdded')
+    on_line_changed_regexp = lambda x: has_prefix(x, prefix=r'\[\[2a end - 2d start\] onChildChanged')
+    finish_rendering_regexp = lambda x: has_prefix(x, prefix=r'\[\[2d\] after update')
+
     log_drawing_moments = []
     log_sync_moments = []
-    with open(host_app_log, 'r') as f:
+    sync_success_found = False
+    first_add_points_moment_time = datetime.max
+    with open(log, 'r') as f:
         while True:
             line = f.readline()
             if not line:
                 break
             # process line by line
-            if touch_start_regexp(line):
-                log_drawing_moments.append(Moment(
-                    source='host',
-                    name='user touches screen',
-                    time=extract_timestamp(line, year=YEAR),
-                    raw_data=line,
-                    action_from='host',
-                    action_to='host',
-                ))
-                continue
-            if stroke_was_added_regexp(line):
-                stroke_id = extract_stroke_id(line)
-                log_drawing_moments.append(Moment(
-                    source='host',
-                    name='add a stroke',
-                    time=extract_timestamp(line, year=YEAR),
-                    raw_data=line,
-                    metadata={'stroke_id': stroke_id},
-                    action_from='host',
-                    action_to='host',
-                ))
-                continue
-            if add_points_to_stroke_regexp(line):
-                log_drawing_moments.append(Moment(
-                    source='host',
-                    name='add points to stroke',
-                    time=extract_timestamp(line, year=YEAR),
-                    raw_data=line,
-                    action_from='host',
-                    action_to='host',
-                ))
-                continue
-            if cloud_finish_processing_regexp(line):
-                log_drawing_moments.append(Moment(
-                    source='host',
-                    name='notified by finish of cloud processing',
-                    time=extract_timestamp(line, year=YEAR),
-                    raw_data=line,
-                    action_from='host',
-                    action_to='host',
-                ))
-                continue
-            if sync_start_regexp(line) or sync_success_regexp(line):
-                if sync_start_regexp(line):
-                    sync_event_name = "sync start"
-                # elif sync_failed_regexp(line):
-                #    sync_event_name = "sync failed"
-                #    if log_sync_moments[-1].name != "sync start":
-                #        raise Exception("No corresponding sync message")
+            if sync_success_found:
+                if touch_start_regexp(line):
+                    log_drawing_moments.append(Moment(
+                        source=phone_type,
+                        name='user touches screen',
+                        time=extract_timestamp(line, year=YEAR),
+                        raw_data=line,
+                        action_from=phone_type,
+                        action_to=phone_type,
+                    ))
+                elif stroke_was_added_regexp(line):
+                    stroke_id = extract_stroke_id(line)
+                    log_drawing_moments.append(Moment(
+                        source=phone_type,
+                        name='add a stroke',
+                        time=extract_timestamp(line, year=YEAR),
+                        raw_data=line,
+                        metadata={'stroke_id': stroke_id},
+                        action_from=phone_type,
+                        action_to=phone_type,
+                    ))
+                elif add_points_to_stroke_regexp(line):
+                    add_points_moment = Moment(
+                        source=phone_type,
+                        name='add points to stroke',
+                        time=extract_timestamp(line, year=YEAR),
+                        raw_data=line,
+                        action_from=phone_type,
+                        action_to=phone_type,
+                    )
+                    if first_add_points_moment_time == datetime.max:
+                        first_add_points_moment_time = add_points_moment.time
+                    log_drawing_moments.append(add_points_moment)
+                elif cloud_finish_processing_regexp(line):
+                    log_drawing_moments.append(Moment(
+                        source=phone_type,
+                        name='notified by finish of cloud processing',
+                        time=extract_timestamp(line, year=YEAR),
+                        raw_data=line,
+                        action_from=phone_type,
+                        action_to=phone_type,
+                    ))
+                elif on_line_changed_regexp(line) or on_line_added_regexp(line):
+                    stroke_id = extract_stroke_id(line)
+                    log_drawing_moments.append(Moment(
+                        source=phone_type,
+                        name='receive point updates',
+                        time=extract_timestamp(line, year=YEAR),
+                        raw_data=line,
+                        metadata={'stroke_id': stroke_id},
+                        action_from=phone_type,
+                        action_to=phone_type,
+                    ))
+                elif finish_rendering_regexp(line):
+                    log_drawing_moments.append(Moment(
+                        source=phone_type,
+                        name='finish rendering',
+                        time=extract_timestamp(line, year=YEAR),
+                        raw_data=line,
+                        action_from=phone_type,
+                        action_to=phone_type,
+                    ))
                 else:
-                    sync_event_name = "sync success"
-                    if log_sync_moments[-1].name != "sync start":
-                        raise Exception("No corresponding sync message")
-                log_sync_moments.append(Moment(
-                    source='host',
-                    name=sync_event_name,
-                    time=extract_timestamp(line, year=YEAR),
-                    raw_data=line,
-                    action_from='host',
-                    action_to='host',
-                ))
+                    continue  # Messages that we don't care.
+
+            # Synchronization-related log messages.
+            else:
+                if sync_start_regexp(line) or sync_success_regexp(line):
+                    if sync_start_regexp(line):
+                        sync_event_name = "sync start"
+                    # elif sync_failed_regexp(line):
+                    #    sync_event_name = "sync failed"
+                    #    if log_sync_moments[-1].name != "sync start":
+                    #        raise Exception("No corresponding sync message")
+                    else:
+                        sync_event_name = "sync success"
+                        sync_success_found = True
+                        if log_sync_moments[-1].name != "sync start":
+                            raise Exception("No corresponding sync message")
+                    log_sync_moments.append(Moment(
+                        source=phone_type,
+                        name=sync_event_name,
+                        time=extract_timestamp(line, year=YEAR),
+                        raw_data=line,
+                        action_from=phone_type,
+                        action_to=phone_type,
+                    ))
                 continue
 
         # Error checking
         if not log_sync_moments:
             raise RuntimeError("Missing sync start or end message.")
 
-    return {"log_drawing_moments": log_drawing_moments, "log_sync_moments": log_sync_moments}
+    return {"log_drawing_moments": log_drawing_moments,
+            "log_sync_moments": log_sync_moments,
+            "first_add_points_moment_time": first_add_points_moment_time}
 
 
-def prepare_host_pcap_info(
-        host_pcap,
-        start_time,
-        end_time,
-):
-    # Apply filters.
+def get_phone_ip(pcap, ip_version_is_six: bool):
+    # Get phone IP
     pyshark_filters = []
-    pyshark_filters.append('frame.time >= "{st}"'.format(st=start_time.strftime(DATETIME_FORMAT)))
-    pyshark_filters.append('frame.time <= "{et}"'.format(et=end_time.strftime(DATETIME_FORMAT)))
+    pyshark_filters.append('tcp.flags.syn == 1')
+    ip_filter = "ipv6" if ip_version_is_six else "ip"
+    pyshark_filters.append(ip_filter)
+    syn_filter = ' && '.join(pyshark_filters)
+    syn_pkts = pyshark.FileCapture(pcap, display_filter=syn_filter)
+    for syn_pkt in syn_pkts:
+        phone_ip = get_ip(syn_pkt, type='src')
+        break
+
+    return phone_ip
+
+
+def get_firebase_database_ip(host_pcap, resolver_pcap, host_phone_ip, resolver_phone_ip, host_first_add_points_time,
+                             resolver_first_add_points_time):
+    if host_first_add_points_time < resolver_first_add_points_time:
+        first_add_points_moment_time = host_first_add_points_time
+        pcap = host_pcap
+        phone_ip = host_phone_ip
+    else:
+        first_add_points_moment_time = resolver_first_add_points_time
+        pcap = resolver_pcap
+        phone_ip = resolver_phone_ip
+
+    # Error checking
+    if first_add_points_moment_time == datetime.max:
+        raise Exception("No valid 1a start found")
+
+    pyshark_filters = []
+    pyshark_filters.append('frame.time >= "{st}"'.format(st=first_add_points_moment_time.strftime(DATETIME_FORMAT)))
     pyshark_filters.append('tcp')
     display_filter = ' && '.join(pyshark_filters)
-    cap_e2e = pyshark.FileCapture(host_pcap, display_filter=display_filter)
+    pkts = pyshark.FileCapture(pcap, display_filter=display_filter)
 
-    moments = []
+    # Assume the first packet sent by the phone is to the firebase database.
+    for pkt in pkts:
+        src_ip = get_ip(pkt, type='src')
+        if src_ip == phone_ip:
+            database_ip = get_ip(pkt, type='dst')
+            break
+    return database_ip
+
+
+def parse_pcap(
+        pcap,
+        e2e_filter: str,
+        phone_ip: str,
+        database_ip: str,
+        phone_type: str,
+        arcore_ip_set
+):
+    # Categorize all the packets.
+    drawing_moments = []
+    sync_moments = []
     ip_set = set()
-    phone_ip = None
-    database_ip = None
+    cap_e2e = pyshark.FileCapture(pcap, display_filter=e2e_filter)
     for pkt in cap_e2e:
         # Push all IP addresses to a set (for debugging purposes)
         src_ip = get_ip(pkt, type='src')
@@ -170,180 +247,56 @@ def prepare_host_pcap_info(
         ip_set.add(src_ip)
         ip_set.add(dst_ip)
 
-        # Get phone IP and Firebase IP.
-        if phone_ip is None and is_data_pkt(pkt):
-            phone_ip = src_ip
-            database_ip = dst_ip
-
-        # If this packet is associated with an event, then create a "moment" for it.
+        # Drawing moments. i.e., traffic from/to firebase database.
         if is_data_pkt(pkt, min_size=100, src=phone_ip, dst=database_ip):
-            moments.append(Moment(
-                source='host',
+            drawing_moments.append(Moment(
+                source=phone_type,
                 name='send data pkt to cloud',
                 time=get_timestamp(pkt),
                 raw_data=pkt,
                 metadata=create_essential_metadata(pkt, type='data'),
-                action_from='host',
+                action_from=phone_type,
                 action_to='cloud',
             ))
         elif is_ack_pkt(pkt, src=database_ip, dst=phone_ip):
-            moments.append(Moment(
-                source='host',
+            drawing_moments.append(Moment(
+                source=phone_type,
                 name='receive ack pkt from cloud',
                 time=get_timestamp(pkt),
                 raw_data=pkt,
                 metadata=create_essential_metadata(pkt, type='ack'),
                 action_from='cloud',
-                action_to='host',
+                action_to=phone_type,
             ))
         elif is_data_pkt(pkt, min_size=100, src=database_ip, dst=phone_ip):
-            moments.append(Moment(
-                source='host',
+            drawing_moments.append(Moment(
+                source=phone_type,
                 name='receive data pkt from cloud',
                 time=get_timestamp(pkt),
                 raw_data=pkt,
                 metadata=create_essential_metadata(pkt, type='data'),
                 action_from='cloud',
-                action_to='host',
+                action_to=phone_type,
             ))
+        elif is_data_pkt(pkt, min_size=100, src=arcore_ip_set, dst=phone_ip):
+            sync_moments.append(Moment(
+                source=phone_type,
+                name='receive data pkt from cloud',
+                time=get_timestamp(pkt),
+                raw_data=pkt,
+                metadata=create_essential_metadata(pkt, type='data'),
+                action_from='cloud',
+                action_to=phone_type,
+            ))
+        else:
+            continue
     cap_e2e.close()
     return {
         'phone_ip': phone_ip,
         'database_ip': database_ip,
         'ip_set': ip_set,
-        'moments': moments,
-    }
-
-
-def prepare_resolver_log_info(resolver_app_log):
-    """
-    Read each lines of the resolver's log.
-    Check each line to see if it contains "onLineAdded" or "onLineChanged" keyword.
-    If yes, construct a "moment" object, and add it to a list.
-    Args:
-        resolver_app_log: path to the resolver's log
-
-    Returns:
-        moments: the list of extracted moments.
-
-    """
-    on_line_added_regexp = lambda x: has_prefix(x, prefix=r'\[\[2a end - 2d start\] onChildAdded')
-    on_line_changed_regexp = lambda x: has_prefix(x, prefix=r'\[\[2a end - 2d start\] onChildChanged')
-    finish_rendering_regexp = lambda x: has_prefix(x, prefix=r'\[\[2d\] after update')
-    sync_start_regexp = lambda x: has_prefix(x, prefix=r'SET ANCHOR')
-    sync_success_regexp = lambda x: has_prefix(x, prefix=r'SYNCED')
-    sync_failed_regexp = lambda x: has_prefix(x, prefix=r'onAnchorResolutionError')
-
-    log_drawing_moments = []
-    log_sync_moments = []
-    # Timestamp upon receiving the last group of point coordinates.
-    last_points_time = None
-    with open(resolver_app_log, 'r') as f:
-        while True:
-            line = f.readline()
-            if not line:
-                break
-            # process line by line
-            if on_line_changed_regexp(line) or on_line_added_regexp(line):
-                stroke_id = extract_stroke_id(line)
-                log_drawing_moments.append(Moment(
-                    source='resolver',
-                    name='receive point updates',
-                    time=extract_timestamp(line, year=YEAR),
-                    raw_data=line,
-                    metadata={'stroke_id': stroke_id},
-                    action_from='resolver',
-                    action_to='resolver',
-                ))
-            if finish_rendering_regexp(line):
-                log_drawing_moments.append(Moment(
-                    source='resolver',
-                    name='finish rendering',
-                    time=extract_timestamp(line, year=YEAR),
-                    raw_data=line,
-                    action_from='resolver',
-                    action_to='resolver',
-                ))
-                continue
-            if sync_start_regexp(line) or sync_success_regexp(line):
-                if sync_start_regexp(line):
-                    sync_event_name = "sync start"
-                else:
-                    sync_event_name = "sync success"
-                    if log_sync_moments[-1].name != "sync start":
-                        raise Exception("No corresponding sync message")
-                log_sync_moments.append(Moment(
-                    source='resolver',
-                    name=sync_event_name,
-                    time=extract_timestamp(line, year=YEAR),
-                    raw_data=line,
-                    action_from='resolver',
-                    action_to='resolver',
-                ))
-                continue
-
-
-    # Error checking
-    if not log_sync_moments:
-        raise RuntimeError("Missing sync start or end message.")
-
-    return {"log_drawing_moments": log_drawing_moments, "log_sync_moments": log_sync_moments}
-
-
-def prepare_resolver_pcap_info(
-        resolver_pcap,
-        start_time,
-        end_time,
-        database_ip,
-):
-    pyshark_filters = []
-    pyshark_filters.append('frame.time >= "{st}"'.format(st=start_time.strftime(DATETIME_FORMAT)))
-    pyshark_filters.append('frame.time <= "{et}"'.format(et=end_time.strftime(DATETIME_FORMAT)))
-    pyshark_filters.append('tcp')
-    # only deal with data pkt from or to the database IP
-    pyshark_filters.append(
-        '({a} || {b})'.format(a=filter_ip(database_ip, type='src'), b=filter_ip(database_ip, type='dst')))
-    display_filter = ' && '.join(pyshark_filters)
-    caps = pyshark.FileCapture(resolver_pcap, display_filter=display_filter)
-
-    moments = []
-    ip_set = set()
-    resolver_phone_ip = None
-
-    for pkt in caps:
-        ip_set.add(get_ip(pkt, type='src'))
-        ip_set.add(get_ip(pkt, type='dst'))
-        # get the first pkt from database to resolver phone
-        if resolver_phone_ip is None and is_data_pkt(pkt, src=database_ip):
-            resolver_phone_ip = get_ip(pkt, type='dst')
-
-        if is_data_pkt(pkt, min_size=100):
-            moments.append(Moment(
-                source='resolver',
-                name='receive data pkt from cloud',
-                time=get_timestamp(pkt),
-                raw_data=pkt,
-                metadata=create_essential_metadata(pkt, type='data'),
-                action_from='cloud',
-                action_to='resolver',
-            ))
-            continue
-        if is_ack_pkt(pkt):
-            moments.append(Moment(
-                source='resolver',
-                name='send ack pkt to cloud',
-                time=get_timestamp(pkt),
-                raw_data=pkt,
-                metadata=create_essential_metadata(pkt, type='ack'),
-                action_from='resolver',
-                action_to='cloud',
-            ))
-            continue
-    caps.close()
-    return {
-        'moments': moments,
-        'ip_set': ip_set,
-        'phone_ip': resolver_phone_ip,
+        'drawing_moments': drawing_moments,
+        'sync_moments': sync_moments,
     }
 
 
@@ -388,7 +341,7 @@ def get_arcore_addresses(pcap_path, first_sync_start_ts, sync_end_ts, last_rende
     ip_filter = 'ipv6' if ip_ver_is_six else 'ip'
     pyshark_filter = [syn_ack_filter, first_sync_start_ts_filter, sync_end_ts_filter, ip_filter]
     display_filter = " && ".join(pyshark_filter)
-    print(display_filter)
+    print("get_arcore_addresses: " + display_filter)
     syn_ack_packets = pyshark.FileCapture(pcap_path, display_filter=display_filter)
 
     # Check each SYN-ACK packet.
@@ -445,35 +398,48 @@ def parse_log_and_pcap(host_app_log, resolver_app_log, host_pcap, resolver_pcap)
     :param resolver_pcap: path to the resolver's pcap file
     :return: a map
     """
+
+    def get_e2e_filter(first_touch_screen_moment_time, last_finish_rendering_moment_time, ip_version_is_six: bool):
+        pyshark_filters = []
+        pyshark_filters.append(
+            'frame.time >= "{st}"'.format(st=first_touch_screen_moment_time.strftime(DATETIME_FORMAT)))
+        pyshark_filters.append(
+            'frame.time <= "{et}"'.format(et=last_finish_rendering_moment_time.strftime(DATETIME_FORMAT)))
+        ip_filter = "ipv6" if ip_version_is_six else "ip"
+        tls_filter = "!tls.handshake"
+        pyshark_filters.append('tcp')
+        pyshark_filters.append(ip_filter)
+        pyshark_filters.append(tls_filter)
+        e2e_filter = ' && '.join(pyshark_filters)
+        return e2e_filter
+
     # host app moments
-    host_log_info_map = prepare_host_log_info(host_app_log)
+    host_log_info_map = parse_log(host_app_log, "host")
     host_log_drawing_moments = host_log_info_map['log_drawing_moments']
     host_log_sync_moments = host_log_info_map['log_sync_moments']
-    first_moment_touch_screen = host_log_drawing_moments[0]
 
     # resolver app moments
-    resolver_log_info_map = prepare_resolver_log_info(resolver_app_log)
+    resolver_log_info_map = parse_log(resolver_app_log, "resolver")
     resolver_log_drawing_moments = resolver_log_info_map['log_drawing_moments']
     resolver_log_sync_moments = host_log_info_map['log_sync_moments']
-    last_moment_finish_rendering = resolver_log_drawing_moments[-1]
+
+    # Check if the host used IPv6
+    ip_version_is_six = is_ip_version_six(host_pcap)
+
+    # Get phone IP
+    host_phone_ip = get_phone_ip(host_pcap, ip_version_is_six)
+    resolver_phone_ip = get_phone_ip(resolver_pcap, ip_version_is_six)
+
+    # Get firebase database ip
+    database_ip = get_firebase_database_ip(host_pcap, resolver_pcap, host_phone_ip, resolver_phone_ip,
+                                           host_log_info_map["first_add_points_moment_time"],
+                                           resolver_log_info_map["first_add_points_moment_time"])
 
     # host pcap trace moments, within e2e time duration
-    host_pcap_info = prepare_host_pcap_info(
-        host_pcap,
-        start_time=first_moment_touch_screen.time,
-        end_time=last_moment_finish_rendering.time,
-    )
-
-    # resolver pcap trace moments, within the e2e time frame.
-    resolver_pcap_info = prepare_resolver_pcap_info(
-        resolver_pcap,
-        start_time=first_moment_touch_screen.time,
-        end_time=last_moment_finish_rendering.time,
-        database_ip=host_pcap_info['database_ip'],
-    )
-
-    # Check if the host used IPv6, and set the firebase regex pattern we are looking for.
-    ip_version_is_six = is_ip_version_six(host_pcap)
+    # Get filters
+    first_touch_screen_moment_time = min(host_log_drawing_moments[0].time, resolver_log_drawing_moments[0].time)
+    last_finish_rendering_moment_time = max(host_log_drawing_moments[-1].time, resolver_log_drawing_moments[-1].time)
+    e2e_filter = get_e2e_filter(first_touch_screen_moment_time, last_finish_rendering_moment_time, ip_version_is_six)
 
     # Find ARCore IP addresses used by the host.
     host_arcore_ip_set = get_arcore_addresses(host_pcap,
@@ -481,9 +447,9 @@ def parse_log_and_pcap(host_app_log, resolver_app_log, host_pcap, resolver_pcap)
                                               host_log_sync_moments[0].time,
                                               # sync end time.
                                               host_log_sync_moments[-1].time,
-                                              last_moment_finish_rendering.time,
-                                              host_pcap_info['phone_ip'],
-                                              host_pcap_info['database_ip'],
+                                              last_finish_rendering_moment_time,
+                                              host_phone_ip,
+                                              database_ip,
                                               ip_version_is_six)
 
     # Find ARCore IP addresses used by the resolver.
@@ -492,21 +458,41 @@ def parse_log_and_pcap(host_app_log, resolver_app_log, host_pcap, resolver_pcap)
                                                   host_log_sync_moments[0].time,
                                                   # sync end time.
                                                   host_log_sync_moments[-1].time,
-                                                  last_moment_finish_rendering.time,
-                                                  resolver_pcap_info['phone_ip'],
-                                                  host_pcap_info['database_ip'],
+                                                  last_finish_rendering_moment_time,
+                                                  resolver_phone_ip,
+                                                  database_ip,
                                                   ip_version_is_six)
+
+    # host pcap trace moments, within the e2e time frame.
+    host_pcap_info = parse_pcap(
+        host_pcap,
+        e2e_filter,
+        host_phone_ip,
+        database_ip,
+        "host",  # phone type
+        host_arcore_ip_set,
+    )
+
+    # resolver pcap trace moments, within the e2e time frame.
+    resolver_pcap_info = parse_pcap(
+        resolver_pcap,
+        e2e_filter,
+        resolver_phone_ip,
+        database_ip,
+        "resolver",  # phone type
+        resolver_arcore_ip_set,
+    )
 
     host_runtime_info = RuntimeInfo(log_drawing_moments=host_log_drawing_moments,
                                     log_sync_moments=host_log_sync_moments,
-                                    pcap_moments=host_pcap_info['moments'],
+                                    pcap_drawing_moments=host_pcap_info['drawing_moments'],
                                     phone_ip=host_pcap_info['phone_ip'],
                                     arcore_ip_set=host_arcore_ip_set,
                                     ip_ver_is_six=ip_version_is_six)
 
     resolvers_runtime_info = RuntimeInfo(log_drawing_moments=resolver_log_drawing_moments,
                                          log_sync_moments=resolver_log_sync_moments,
-                                         pcap_moments=resolver_pcap_info['moments'],
+                                         pcap_drawing_moments=resolver_pcap_info['drawing_moments'],
                                          phone_ip=resolver_pcap_info['phone_ip'],
                                          arcore_ip_set=resolver_arcore_ip_set,
                                          ip_ver_is_six=ip_version_is_six)
@@ -514,8 +500,8 @@ def parse_log_and_pcap(host_app_log, resolver_app_log, host_pcap, resolver_pcap)
     return {
         'host': host_runtime_info,
         'resolver': resolvers_runtime_info,
-        'e2e_start_time': first_moment_touch_screen.time,
-        'e2e_end_time': last_moment_finish_rendering.time,
+        'e2e_start_time': first_touch_screen_moment_time,
+        'e2e_end_time': last_finish_rendering_moment_time,
         'ip_set': host_pcap_info['ip_set'].union(resolver_pcap_info['ip_set']),
         'database_ip': host_pcap_info['database_ip'],
     }

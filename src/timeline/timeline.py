@@ -8,8 +8,8 @@ def get_timeline(info_map):
     # Combine all moments
     timeline.extend(host_runtime_info_map.log_drawing_moments)
     timeline.extend(resolver_runtime_info_map.log_drawing_moments)
-    timeline.extend(host_runtime_info_map.pcap_moments)
-    timeline.extend(resolver_runtime_info_map.pcap_moments)
+    timeline.extend(host_runtime_info_map.pcap_drawing_moments)
+    timeline.extend(resolver_runtime_info_map.pcap_drawing_moments)
     # sort moments by time
     timeline.sort(key=lambda x: x.time)
 

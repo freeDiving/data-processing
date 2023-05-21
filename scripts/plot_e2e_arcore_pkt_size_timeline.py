@@ -25,8 +25,10 @@ def output_path(*paths: str) -> str:
 
 
 def output_chart(
-        x_time: list,
-        y_e2e_latency: list,
+        x_host_draw_time: list,
+        y_host_draw_e2e: list,
+        x_resolver_draw_time: list,
+        y_resolver_draw_e2e: list,
         x_host_arcore_uplink_time: list,
         y_host_arcore_uplink_size: list,
         x_host_arcore_downlink_time: list,
@@ -44,8 +46,8 @@ def output_chart(
 
     ax2 = ax1.twinx()
 
-    e2e_start = x_time[0]
-    e2e_end = x_time[-1]
+    e2e_start = min(x_host_draw_time[0], x_resolver_draw_time[0])
+    e2e_end = max(x_host_draw_time[-1], x_resolver_draw_time[-1])
 
     ax1.set_xticks(pd.date_range(e2e_start, e2e_end, freq='1 ms'))
     ax1.set_xlim(e2e_start, e2e_end)
@@ -84,10 +86,18 @@ def output_chart(
     )
 
     ax2.scatter(
-        x_time,
-        y_e2e_latency,
+        x_host_draw_time,
+        y_host_draw_e2e,
         color='green',
-        label='e2e latency',
+        label='e2e latency (host draw)',
+        marker='_'
+    )
+
+    ax2.scatter(
+        x_resolver_draw_time,
+        y_resolver_draw_e2e,
+        color='magenta',
+        label='e2e latency \n(resolver draw)',
         marker='_'
     )
 
@@ -110,24 +120,29 @@ def output_chart(
     print('saved to {}'.format(output_file_path))
 
 
-def e2e_of_phase(phase):
-    e2e_start = phase['host: local action']['start']
-    e2e_end = phase['resolver: rendering']['end']
-    return e2e_start, e2e_end
-
-
 def prepare_e2e_latency_data(phases: List):
-    x = []
-    y = []
+    x_host_draw_time = []
+    x_resolver_draw_time = []
+    y_host_draw_e2e = []
+    y_resolver_draw_e2e = []
     for phase in phases:
-        e2e_start, e2e_end = e2e_of_phase(phase)
+        e2e_start = phase.get_e2e_start()
+        e2e_end = phase.get_e2e_end()
         e2e = float(diff_sec(e2e_start, e2e_end))
-        x.append(e2e_end)
-        y.append(e2e)
-    return x, y
+        if phase.host_name == "host":
+            x_host_draw_time.append(e2e_end)
+            y_host_draw_e2e.append(e2e)
+        else:
+            x_resolver_draw_time.append(e2e_end)
+            y_resolver_draw_e2e.append(e2e)
+    return {"x_host_draw_time": x_host_draw_time,
+            "y_host_draw_e2e": y_host_draw_e2e,
+            'x_resolver_draw_time': x_resolver_draw_time,
+            "y_resolver_draw_e2e": y_resolver_draw_e2e}
 
 
 def main():
+    """
     host_dirs = [
         input_path('../datasets/5g-static-line/host/run1'),
         input_path('../datasets/5g-static-line/host/run2'),
@@ -145,6 +160,9 @@ def main():
         input_path('../datasets/5g-resolver_move-line/host/run4'),
         input_path('../datasets/5g-resolver_move-line/host/run5'),
     ]
+    """
+    host_dirs = [input_path('../datasets/0517-wifi/host/run1')]
+
     for index, host_path in enumerate(host_dirs):
         resolver_path = host_path.replace('/host/', '/resolver/')
         exp_name = host_path.split('/')[-3]
@@ -165,7 +183,6 @@ def main():
         phases = prepare_phases(timeline)
 
         # e2e-time data
-        x_time, y_e2e_latency = prepare_e2e_latency_data(phases)
         host_info = info_map["host"]
         resolver_info = info_map["resolver"]
 
@@ -184,7 +201,6 @@ def main():
 
         host_phone_ip = host_info.phone_ip
         resolver_phone_ip = resolver_info.phone_ip
-        arcore_ip_prefix = '2607:f8b0:4006'
 
         x_host_arcore_uplink_time = []
         y_host_arcore_uplink_size = []
@@ -197,14 +213,14 @@ def main():
 
         # prepare data for arcore uplink and downlink
         for moment in other_ip_moments:
-            if moment.action_to.startswith(arcore_ip_prefix):
+            if (moment.action_to in host_info.arcore_ip_set) or (moment.action_to in resolver_info.arcore_ip_set):
                 if moment.action_from == host_phone_ip:
                     x_host_arcore_uplink_time.append(moment.time)
                     y_host_arcore_uplink_size.append(int(moment.metadata['size']))
                 elif moment.action_from == resolver_phone_ip:
                     x_resolver_arcore_uplink_time.append(moment.time)
                     y_resolver_arcore_uplink_size.append(int(moment.metadata['size']))
-            elif moment.action_from.startswith(arcore_ip_prefix):
+            elif (moment.action_from in host_info.arcore_ip_set) or (moment.action_from in resolver_info.arcore_ip_set):
                 if moment.action_to == host_phone_ip:
                     x_host_arcore_downlink_time.append(moment.time)
                     y_host_arcore_downlink_size.append(int(moment.metadata['size']))
@@ -214,10 +230,17 @@ def main():
 
         output_dir = exp_name + '/' + run_name
         filename = 'arcore_pkt_size-vs-e2e-over-time'
+        res = prepare_e2e_latency_data(phases)
+        x_host_draw_time = res["x_host_draw_time"]
+        y_host_draw_e2e = res["y_host_draw_e2e"]
+        x_resolver_draw_time = res["x_resolver_draw_time"]
+        y_resolver_draw_e2e = res["y_resolver_draw_e2e"]
 
         output_chart(
-            x_time=x_time,
-            y_e2e_latency=y_e2e_latency,
+            x_host_draw_time=x_host_draw_time,
+            y_host_draw_e2e=y_host_draw_e2e,
+            x_resolver_draw_time=x_resolver_draw_time,
+            y_resolver_draw_e2e=y_resolver_draw_e2e,
             x_host_arcore_uplink_time=x_host_arcore_uplink_time,
             y_host_arcore_uplink_size=y_host_arcore_uplink_size,
             x_host_arcore_downlink_time=x_host_arcore_downlink_time,

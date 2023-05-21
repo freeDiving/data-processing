@@ -106,7 +106,8 @@ def calculate_sync_data(runtime_info, pcap_path):
     sync_start_filter = 'frame.time >= "{st}"'.format(st=sync_start_moment.time.strftime(DATETIME_FORMAT))
     sync_end_filter = 'frame.time <= "{et}"'.format(et=sync_success_moment.time.strftime(DATETIME_FORMAT))
     ip_ver_filter = "ipv6" if runtime_info.ip_ver_is_six else "ip"
-    display_filter = " && ".join([sync_start_filter, sync_end_filter, ip_ver_filter, "tcp"])
+    tls_filter = "!tls.handshake"
+    display_filter = " && ".join([sync_start_filter, sync_end_filter, ip_ver_filter, tls_filter, "tcp"])
     # Get capture
     caps = pyshark.FileCapture(pcap_path, display_filter=display_filter)
 
@@ -139,6 +140,7 @@ def calculate_sync_data(runtime_info, pcap_path):
 
 
 def main():
+    #"""
     host_dirs = [
         input_path('../datasets/5g-static-line/host/run1'),
         input_path('../datasets/5g-static-line/host/run2'),
@@ -156,6 +158,8 @@ def main():
         input_path('../datasets/5g-resolver_move-line/host/run4'),
         input_path('../datasets/5g-resolver_move-line/host/run5'),
     ]
+    #"""
+    #host_dirs = [input_path('../datasets/0517-wifi/host/run1')]
     for index, host_path in enumerate(host_dirs):
         resolver_path = host_path.replace('/host/', '/resolver/')
         exp_name = host_path.split('/')[-3]

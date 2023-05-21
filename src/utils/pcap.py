@@ -29,8 +29,12 @@ def filter_ip(ip: str, type: str):
 def is_data_pkt(pkt, min_size=0, src=None, dst=None):
     data_pkt_flag = False
     if 'tls' in pkt:
-        data_pkt_flag = 'Application Data' in str(pkt.tls)
-    return data_pkt_flag and is_pkt(pkt, min_size, src, dst)
+        if 'Application Data' in str(pkt.tls) and is_pkt(pkt, src=src, dst=dst):
+            return True
+        # If TLS version is 1.2, then for larger packets, assume it's a data packet.
+        if is_pkt(pkt, min_size, src=src, dst=dst):
+            return True
+    return False
 
 
 def is_ack_pkt(pkt, min_size=0, src=None, dst=None):
@@ -39,15 +43,21 @@ def is_ack_pkt(pkt, min_size=0, src=None, dst=None):
 
 
 def is_pkt(pkt, min_size=0, src=None, dst=None):
+    # Convert src and dst to set to check membership.
+    if isinstance(src, str):
+        src = {src}
+    if isinstance(dst, str):
+        dst = {dst}
+
     size_filter = True
     src_filter = True
     dst_filter = True
     if min_size > 0:
         size_filter = int(pkt.length) > min_size
     if src is not None:
-        src_filter = get_ip(pkt, type='src') == src
+        src_filter = get_ip(pkt, type='src') in src
     if dst is not None:
-        dst_filter = get_ip(pkt, type='dst') == dst
+        dst_filter = get_ip(pkt, type='dst') in dst
     return size_filter and src_filter and dst_filter
 
 
