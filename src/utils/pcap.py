@@ -38,7 +38,7 @@ def is_data_pkt(pkt, min_size=0, src=None, dst=None):
 
 
 def is_ack_pkt(pkt, min_size=0, src=None, dst=None):
-    ack_pkt_flag = 'TCP' in pkt and int(pkt.tcp.flags_ack) == 1 and int(pkt.tcp.flags_push) == 0
+    ack_pkt_flag = 'TCP' in pkt and int(pkt.tcp.flags_ack) == 1 and int(pkt.tcp.len) == 0
     return ack_pkt_flag and is_pkt(pkt, min_size, src, dst)
 
 
