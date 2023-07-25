@@ -281,7 +281,7 @@ def parse_pcap(
         elif is_data_pkt(pkt, min_size=100, src=arcore_ip_set, dst=phone_ip):
             sync_moments.append(Moment(
                 source=phone_type,
-                name='receive data pkt from cloud',
+                name='receive SLAM pkt from cloud',
                 time=get_timestamp(pkt),
                 raw_data=pkt,
                 metadata=create_essential_metadata(pkt, type='data'),

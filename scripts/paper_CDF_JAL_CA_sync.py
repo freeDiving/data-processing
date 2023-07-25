@@ -1,4 +1,4 @@
-# Plot CDF for CloudAnchor E2E time, and Just-a-Line initial synchronization time.
+# Plot figure 5(a): CDF for CloudAnchor E2E time, and Just-a-Line initial synchronization time.
 
 import numpy as np
 import os
@@ -63,8 +63,6 @@ def main():
         ]
         for index, host_path in enumerate(host_dirs):
             resolver_path = host_path.replace('/host/', '/resolver/')
-            exp_name = host_path.split('/')[-3]
-            run_name = host_path.split('/')[-1]
             app_log = 'static_log.logcat'
             pcap = 'capture.pcap'
 

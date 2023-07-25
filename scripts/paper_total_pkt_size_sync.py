@@ -1,4 +1,5 @@
-# Plot the total uplink and downlink packet size during Just-a-Line initial synchronization
+# Plot figure 5 (b) and (c)
+# i.e., the total uplink and downlink packet size during Just-a-Line initial synchronization
 
 import numpy as np
 import os

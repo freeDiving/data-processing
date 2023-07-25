@@ -1,5 +1,11 @@
 # Data Processing for Just A Line Measurements
 
+
+**Note:** this branch only works for the three of our test cases: 5G static, 5G host mobile, and 5G resover mobile. The main reason is that in some other cases, Just-a-line took a long time to do synchronization. This script makes the best effoert to infer the IP address, however, long syncrhonization can result in reconnections,  which can make the result inaccurate.
+
+In general, if the synchronization process is very long, users are expected to manually check if the ARCore IP is correct.
+
+
 ## Quick Start
 
 Following the steps can help you kickstart the data processing with our scripts:

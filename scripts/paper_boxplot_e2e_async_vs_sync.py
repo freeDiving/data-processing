@@ -1,4 +1,4 @@
-# Plot Cloud Anchor E2E (5G), and Just-a-Line E2E (5G, LTE, Wifi) with boxplots.
+# Plot figure 2(a)
 
 import os
 from typing import List
@@ -53,7 +53,6 @@ def output_boxplot(
         #: List[pd.DataFrame],
         df_wifi_static: List[pd.DataFrame],
         df_lte_static: List[pd.DataFrame],
-        type: str,
 ):
     #label_list = ['5G', '5G-Blocked', 'WiFi', 'LTE']
     label_list = ['5G', 'WiFi', 'LTE']
@@ -151,11 +150,7 @@ def prepare_data_for_points():
 
 def main():
     data_for_lines = prepare_data_for_lines()
-    output_boxplot(*data_for_lines, type='lines')
-
-    #data_for_points = prepare_data_for_points()
-    #output_boxplot(*data_for_points, type='points')
-
+    output_boxplot(*data_for_lines)
 
 if __name__ == '__main__':
     main()

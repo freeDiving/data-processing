@@ -148,12 +148,14 @@ def prepare_phases(timeline: List[Moment]):
                 moment_used_for_transition = True
                 break
             # Start of debug (to-do: add a flag to enable/disable debug)
+            """"
             else:  # debug
                 if ((moment.source == "resolver" and moment.name == 'end data pkt to cloud')
                         or (moment.source == "resolver" and moment.name == 'receive ack pkt from cloud')
                         or (moment.source == "host" and moment.name == 'receive data pkt from cloud')):
                     print("here")
             # End of debug info
+            """
         if not moment_used_for_transition:
             # If this moment is the start of 1a, then create a new phase and append it to the queue.
             if moment.name == 'user touches screen' or moment.name == 'add points to stroke':
